@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glosario Gamer – Términos de videojuegos explicados</title>
+<meta name="description" content="Diccionario de términos gaming explicados en español: FPS, ping, roguelike, DLC, meta, crossplay y muchos más. Actualizado por ofertasspeedrun.">
+<meta name="keywords" content="glosario gaming, diccionario videojuegos, que es un roguelike, que significa ping, terminos gamer, jerga gaming">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Glosario Gamer – ofertasspeedrun">
+<meta property="og:description" content="Todos los términos gaming explicados de forma clara: técnicos, de género, online, plataformas y cultura gamer.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  :root {
+    --bg: #0e0e12;
+    --surface: #16161d;
+    --surface2: #1e1e28;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text: #e8e8f0;
+    --text-muted: #7070a0;
+    --accent: #7c6af5;
+    --accent-hover: #9585ff;
+    --accent-dim: rgba(124,106,245,0.15);
+    --success: #3ecf8e;
+    --success-dim: rgba(62,207,142,0.12);
+    --warning: #f0a050;
+    --warning-dim: rgba(240,160,80,0.12);
+    --pink: #f568a0;
+    --pink-dim: rgba(245,104,160,0.12);
+    --radius: 10px;
+    --radius-lg: 16px;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+    position: relative;
+  }
+
+  .visit-counter {
+    position: absolute; top: 1rem; right: 1rem;
+    font-size: 12px; color: #555; font-weight: 400; pointer-events: none;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 0.5rem;
+    flex-wrap: wrap; margin-bottom: 0.5rem;
+  }
+  .nav-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--text-muted); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--text); }
+  .nav-sep { color: var(--text-muted); font-size: 13px; }
+
+  .pre-header {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 10px; margin-bottom: 1.5rem;
+  }
+  .social-links { display: flex; justify-content: center; align-items: center; gap: 16px; }
+  .social-links a { color: #888; font-size: 28px; transition: all 0.2s ease; text-decoration: none; }
+  .social-links a:hover { transform: scale(1.15); }
+  .social-links .fa-instagram:hover { color: #E4405F; }
+  .social-links .fa-tiktok:hover { color: #25F4EE; }
+  .social-links .fa-twitch:hover { color: #9146FF; }
+  .share-btn { background: none; border: none; color: #888; font-size: 28px; cursor: pointer; transition: all 0.2s ease; padding: 0; }
+  .share-btn:hover { transform: scale(1.15); color: #f5d10a; }
+
+  header { text-align: center; margin-bottom: 1.75rem; }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.4rem; }
+  header h1 span { color: var(--accent); }
+  header p { color: var(--text-muted); font-size: 0.95rem; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1rem;
+  }
+
+  .search-row { display: flex; gap: 0.6rem; }
+  .search-row input {
+    flex: 1; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius); color: var(--text); font-family: var(--font);
+    font-size: 0.95rem; padding: 0.65rem 0.9rem; outline: none; transition: border-color 0.15s;
+  }
+  .search-row input::placeholder { color: #555; }
+  .search-row input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.9rem; }
+  .filter-chip {
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted);
+    border-radius: 99px; padding: 0.35rem 0.85rem; font-size: 0.8rem; cursor: pointer;
+    transition: all 0.15s; user-select: none;
+  }
+  .filter-chip:hover { border-color: var(--border-hover); color: var(--text); }
+  .filter-chip.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent-hover); }
+
+  .alphabet {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.9rem;
+    padding-top: 0.9rem; border-top: 1px solid var(--border);
+  }
+  .alpha-btn {
+    width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; border-radius: 6px; color: #3a3a4a; background: none; border: none;
+    cursor: default; font-family: var(--font);
+  }
+  .alpha-btn.enabled { color: var(--text-muted); cursor: pointer; }
+  .alpha-btn.enabled:hover { background: var(--surface2); color: var(--text); }
+
+  .results-header { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+
+  .term-group-label {
+    font-size: 0.75rem; font-weight: 700; color: var(--accent);
+    letter-spacing: 0.08em; margin: 1.3rem 0 0.5rem; padding-left: 0.2rem;
+  }
+  .term-group-label:first-of-type { margin-top: 0; }
+
+  .term-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem; margin-bottom: 0.6rem; cursor: pointer; transition: border-color 0.15s;
+  }
+  .term-card:hover { border-color: var(--border-hover); }
+  .term-card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+  .term-name { font-size: 1rem; font-weight: 600; color: var(--text); }
+  .term-corta { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.4; }
+
+  .tag {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 3px 9px; border-radius: 99px; white-space: nowrap; flex-shrink: 0;
+  }
+  .tag-tecnico { background: var(--accent-dim); color: var(--accent-hover); }
+  .tag-online { background: var(--success-dim); color: var(--success); }
+  .tag-generos { background: var(--warning-dim); color: var(--warning); }
+  .tag-plataformas { background: rgba(102,192,244,0.12); color: #66c0f4; }
+  .tag-cultura { background: var(--pink-dim); color: var(--pink); }
+
+  .term-expand {
+    display: none; margin-top: 0.85rem; padding-top: 0.85rem;
+    border-top: 1px solid var(--border); font-size: 0.88rem; color: #cfcfe0; line-height: 1.55;
+  }
+  .term-card.open .term-expand { display: block; }
+  .term-card.open .chevron { transform: rotate(180deg); }
+  .chevron { transition: transform 0.15s; color: var(--text-muted); flex-shrink: 0; }
+
+  .related-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 0.75rem 0 0.4rem; }
+  .related-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .related-pill {
+    font-size: 0.78rem; color: var(--accent-hover); background: var(--accent-dim);
+    border-radius: 99px; padding: 4px 11px; cursor: pointer; border: none; font-family: var(--font);
+  }
+  .related-pill:hover { background: rgba(124,106,245,0.28); }
+
+  .empty-state { text-align: center; color: var(--text-muted); padding: 2.5rem 1rem; font-size: 0.9rem; }
+
+  .footer { margin-top: 2rem; font-size: 12px; color: #444; text-align: center; }
+  .footer a { color: #555; }
+
+  @media (max-width: 480px) {
+    header h1 { font-size: 1.5rem; }
+    .term-card-top { align-items: flex-start; }
+  }
+
+  /* Cookie banner */
+  #cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: #16161d; border-top: 1px solid #333;
+    padding: 14px 20px; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: 13px; color: #aaa;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+  }
+  #cookie-banner a { color: #66c0f4; text-decoration: underline; }
+  #cookie-banner-btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .cookie-btn-accept {
+    background: #66c0f4; color: #000; border: none;
+    border-radius: 6px; padding: 7px 16px; font-size: 13px;
+    font-weight: 600; cursor: pointer;
+  }
+  .cookie-btn-accept:hover { background: #89d0f7; }
+  .cookie-btn-reject {
+    background: none; color: #888; border: 1px solid #444;
+    border-radius: 6px; padding: 7px 16px; font-size: 13px; cursor: pointer;
+  }
+  .cookie-btn-reject:hover { color: #ccc; border-color: #666; }
+  #cookie-modal {
+    display: none; position: fixed; inset: 0; z-index: 10000;
+    background: rgba(0,0,0,0.7); align-items: center; justify-content: center;
+  }
+  #cookie-modal.open { display: flex; }
+  #cookie-modal-box {
+    background: #16161d; border: 1px solid #333; border-radius: 12px;
+    padding: 28px; max-width: 520px; width: 90%; max-height: 80vh;
+    overflow-y: auto; color: #ccc; font-size: 13px; line-height: 1.7;
+  }
+  #cookie-modal-box h2 { color: #fff; font-size: 1rem; margin-bottom: 12px; }
+  #cookie-modal-box h3 { color: #ddd; font-size: 0.85rem; margin: 14px 0 4px; }
+  #cookie-modal-box .close-modal {
+    display: block; margin-top: 20px; background: #333; border: none;
+    color: #ccc; border-radius: 6px; padding: 8px 20px; cursor: pointer; font-size: 13px; width: 100%;
+  }
+  #cookie-modal-box .close-modal:hover { background: #444; }
+</style>
+</head>
+<body>
+
+<div id="visit-counter" class="visit-counter"></div>
+
+<div class="container">
+
+  <div class="nav-links">
+    <a href="https://varsynn.github.io/calendario/" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Calendario de lanzamientos
+    </a>
+    <span class="nav-sep">·</span>
+    <a href="https://varsynn.github.io/buscador/" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      ¿Puede mi PC correrlo?
+    </a>
+    <span class="nav-sep">·</span>
+    <a href="https://varsynn.github.io/juegos-compatibles-con-mi-PC/" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      ¿Qué juegos son compatibles con mi PC?
+    </a>
+  </div>
+
+  <div class="pre-header">
+    <div class="social-links">
+      <a href="https://www.instagram.com/ofertasspeedrun" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@ofertasspeedrun" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://twitch.tv/varsynn" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+      <button class="share-btn" onclick="sharePage()" aria-label="Compartir"><i class="fas fa-share-nodes"></i></button>
+    </div>
+  </div>
+
+  <header>
+    <h1>Glosario <span>Gamer</span></h1>
+    <p>Todos los términos de videojuegos explicados en español, de forma clara</p>
+  </header>
+
+  <div class="card">
+    <div class="search-row">
+      <input type="text" id="search" placeholder="Buscar un término (ej: roguelike, ping, DLC...)" oninput="renderList()">
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="alphabet" id="alphabet"></div>
+  </div>
+
+  <div class="results-header" id="results-header"></div>
+  <div id="results"></div>
+
+</div>
+
+<div class="footer">
+  Sígueme en <a href="https://www.instagram.com/ofertasspeedrun" target="_blank">Instagram</a> ·
+  <a href="https://www.tiktok.com/@ofertasspeedrun" target="_blank">TikTok</a> ·
+  <a href="https://twitch.tv/varsynn" target="_blank">Twitch</a>
+</div>
+
+<!-- BANNER DE COOKIES -->
+<div id="cookie-banner">
+  <span>
+    🍪 Este sitio usa servicios de terceros (fuentes, scripts) que pueden usar cookies técnicas.
+    Al navegar aceptas su uso. <a href="#" onclick="document.getElementById('cookie-modal').classList.add('open');return false;">Más información</a>
+  </span>
+  <div id="cookie-banner-btns">
+    <button class="cookie-btn-reject" onclick="closeCookieBanner()">Rechazar no esenciales</button>
+    <button class="cookie-btn-accept" onclick="acceptCookies()">Aceptar</button>
+  </div>
+</div>
+
+<div id="cookie-modal">
+  <div id="cookie-modal-box">
+    <h2>🍪 Política de Cookies y Privacidad</h2>
+    <p>Este sitio web es operado por <strong>ofertasspeedrun (Varsyn)</strong> con fines informativos y de entretenimiento.</p>
+    <h3>¿Qué cookies usamos?</h3>
+    <p><strong>Cookies técnicas propias:</strong> Guardamos tu preferencia de cookies en el almacenamiento local de tu navegador (localStorage). No contienen datos personales.</p>
+    <p><strong>Servicios de terceros:</strong> Este sitio carga recursos externos (Font Awesome para iconos). No instalamos cookies de seguimiento ni de publicidad propias.</p>
+    <h3>Tus derechos</h3>
+    <p>Puedes rechazar el uso de cookies no esenciales en cualquier momento. Al tratarse de un sitio estático sin registro de usuarios, no almacenamos ningún dato personal identificable.</p>
+    <h3>Contacto</h3>
+    <p>Para cualquier consulta puedes contactarme a través de mis redes sociales: <a href="https://www.instagram.com/ofertasspeedrun" target="_blank">@ofertasspeedrun</a></p>
+    <button class="close-modal" onclick="document.getElementById('cookie-modal').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var pref = localStorage.getItem('cookie-consent');
+  if (pref === 'accepted' || pref === 'rejected') {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+})();
+function acceptCookies() {
+  localStorage.setItem('cookie-consent', 'accepted');
+  document.getElementById('cookie-banner').style.display = 'none';
+  document.getElementById('cookie-modal').classList.remove('open');
+}
+function closeCookieBanner() {
+  localStorage.setItem('cookie-consent', 'rejected');
+  document.getElementById('cookie-banner').style.display = 'none';
+  document.getElementById('cookie-modal').classList.remove('open');
+}
+</script>
+
+<script>
+  const CATEGORIAS = {
+    tecnico:     { label: 'Técnico',     tagClass: 'tag-tecnico' },
+    online:      { label: 'Online',      tagClass: 'tag-online' },
+    generos:     { label: 'Géneros',     tagClass: 'tag-generos' },
+    plataformas: { label: 'Plataformas', tagClass: 'tag-plataformas' },
+    cultura:     { label: 'Cultura gamer', tagClass: 'tag-cultura' }
+  };
+
+  let TERMINOS = [];
+  let categoriaActiva = 'todos';
+
+  function normalizarTexto(str) {
+    return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  async function cargarGlosario() {
+    try {
+      const res = await fetch('glosario.json');
+      TERMINOS = await res.json();
+      TERMINOS.sort((a, b) => normalizarTexto(a.termino).localeCompare(normalizarTexto(b.termino)));
+    } catch (e) {
+      document.getElementById('results').innerHTML = '<div class="empty-state">No se pudo cargar el glosario. Comprueba que glosario.json esté en la misma carpeta.</div>';
+      return;
+    }
+    renderFilters();
+    renderAlphabet();
+    renderList();
+  }
+
+  function renderFilters() {
+    const el = document.getElementById('filters');
+    const chips = [{ key: 'todos', label: 'Todos' }].concat(
+      Object.keys(CATEGORIAS).map(k => ({ key: k, label: CATEGORIAS[k].label }))
+    );
+    el.innerHTML = chips.map(c =>
+      `<button type="button" class="filter-chip${c.key === categoriaActiva ? ' active' : ''}" data-key="${c.key}" onclick="setCategoria('${c.key}')">${c.label}</button>`
+    ).join('');
+  }
+
+  function setCategoria(key) {
+    categoriaActiva = key;
+    renderFilters();
+    renderList();
+  }
+
+  function renderAlphabet() {
+    const el = document.getElementById('alphabet');
+    const letrasConTermino = new Set(TERMINOS.map(t => normalizarTexto(t.termino)[0]?.toUpperCase()));
+    const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    el.innerHTML = letras.map(l => {
+      const enabled = letrasConTermino.has(l);
+      return `<button type="button" class="alpha-btn${enabled ? ' enabled' : ''}" ${enabled ? `onclick="irALetra('${l}')"` : 'disabled'}>${l}</button>`;
+    }).join('');
+  }
+
+  function irALetra(letra) {
+    document.getElementById('search').value = '';
+    categoriaActiva = 'todos';
+    renderFilters();
+    renderList();
+    const target = document.querySelector(`[data-letra="${letra}"]`);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function buscarPorSlug(slug) {
+    const t = TERMINOS.find(t => t.slug === slug);
+    if (!t) return;
+    document.getElementById('search').value = t.termino;
+    categoriaActiva = 'todos';
+    renderFilters();
+    renderList();
+    setTimeout(() => {
+      const card = document.querySelector(`[data-slug="${slug}"]`);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.classList.add('open');
+      }
+    }, 30);
+  }
+
+  function toggleCard(slug) {
+    const card = document.querySelector(`[data-slug="${slug}"]`);
+    if (card) card.classList.toggle('open');
+  }
+
+  function renderList() {
+    const q = normalizarTexto(document.getElementById('search').value.trim());
+    const filtrados = TERMINOS.filter(t => {
+      const matchCategoria = categoriaActiva === 'todos' || t.categoria === categoriaActiva;
+      const matchTexto = !q || normalizarTexto(t.termino).includes(q) || normalizarTexto(t.corta).includes(q);
+      return matchCategoria && matchTexto;
+    });
+
+    const el = document.getElementById('results');
+    const header = document.getElementById('results-header');
+    header.textContent = filtrados.length + (filtrados.length === 1 ? ' término' : ' términos');
+
+    if (filtrados.length === 0) {
+      el.innerHTML = '<div class="empty-state">No hay términos que coincidan con tu búsqueda.</div>';
+      return;
+    }
+
+    let html = '';
+    let letraActual = '';
+    filtrados.forEach(t => {
+      const letra = normalizarTexto(t.termino)[0]?.toUpperCase();
+      if (letra !== letraActual) {
+        letraActual = letra;
+        html += `<div class="term-group-label" data-letra="${letra}">${letra}</div>`;
+      }
+      const cat = CATEGORIAS[t.categoria] || { label: t.categoria, tagClass: 'tag-tecnico' };
+      const relacionados = (t.relacionados || []).map(slug => {
+        const rel = TERMINOS.find(x => x.slug === slug);
+        return rel ? `<button type="button" class="related-pill" onclick="event.stopPropagation(); buscarPorSlug('${slug}')">${rel.termino}</button>` : '';
+      }).join('');
+
+      html += `
+        <div class="term-card" data-slug="${t.slug}" onclick="toggleCard('${t.slug}')">
+          <div class="term-card-top">
+            <div>
+              <span class="term-name">${t.termino}</span>
+              <div class="term-corta">${t.corta}</div>
+            </div>
+            <span class="tag ${cat.tagClass}">${cat.label}</span>
+          </div>
+          <div class="term-expand">
+            <p>${t.larga}</p>
+            ${relacionados ? `<div class="related-label">Términos relacionados</div><div class="related-pills">${relacionados}</div>` : ''}
+          </div>
+        </div>`;
+    });
+    el.innerHTML = html;
+  }
+
+  // Contador de visitas — namespace propio
+  fetch('https://api.counterapi.dev/v1/ofertasspeedrun/glosario/up')
+    .then(res => res.json())
+    .then(data => {
+      const val = data.count ?? data.value ?? null;
+      if (val !== null) {
+        document.getElementById('visit-counter').textContent = '👀 ' + Number(val).toLocaleString('es-ES') + ' visitas';
+      }
+    })
+    .catch(() => { document.getElementById('visit-counter').textContent = ''; });
+
+  function sharePage() {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({ title: 'Glosario Gamer – ofertasspeedrun', url: url }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(url).then(() => { alert('Enlace copiado al portapapeles'); });
+    }
+  }
+
+  cargarGlosario();
+</script>
+
+</body>
+</html>
