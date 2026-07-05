@@ -1,251 +1,1578 @@
 [
-  { "termino": "FPS", "slug": "fps", "categoria": "tecnico",
-    "corta": "Fotogramas por segundo: cuántas imágenes se muestran en pantalla cada segundo.",
-    "larga": "FPS (Frames Per Second) mide la fluidez de un juego. Cuantos más FPS, más suave se ve el movimiento. Por debajo de 30 FPS se percibe entrecortado; 60 FPS es el estándar cómodo; 120+ FPS se nota especialmente en juegos competitivos y con monitores de alta tasa de refresco.",
-    "relacionados": ["refresh-rate", "frame-time", "v-sync"] },
-
-  { "termino": "TPS", "slug": "tps", "categoria": "generos",
-    "corta": "Third Person Shooter: juego de disparos con cámara en tercera persona.",
-    "larga": "A diferencia de los FPS (First Person Shooter), en un TPS ves a tu personaje desde fuera. Ejemplos típicos: Gears of War, The Division, Resident Evil moderno. Suele facilitar la percepción del entorno a cambio de precisión de apuntado.",
-    "relacionados": ["fps-genero"] },
-
-  { "termino": "FPS (género)", "slug": "fps-genero", "categoria": "generos",
-    "corta": "First Person Shooter: juego de disparos en primera persona.",
-    "larga": "Género donde ves a través de los ojos del personaje. Ejemplos: Call of Duty, Counter-Strike, Valorant. No confundir con FPS de rendimiento (fotogramas por segundo), aunque comparten siglas.",
-    "relacionados": ["tps", "fps"] },
-
-  { "termino": "Ping", "slug": "ping", "categoria": "online",
-    "corta": "Tiempo que tarda un dato en ir a un servidor y volver, en milisegundos.",
-    "larga": "Un ping bajo (por debajo de 30-50 ms) significa que tus acciones se reflejan casi al instante en el servidor. Un ping alto provoca retraso entre lo que haces y lo que ocurre en pantalla, algo crítico en juegos competitivos.",
-    "relacionados": ["input-lag", "lag", "tick-rate"] },
-
-  { "termino": "Input Lag", "slug": "input-lag", "categoria": "tecnico",
-    "corta": "Retraso entre pulsar un botón y ver el resultado en pantalla.",
-    "larga": "Es la suma de varios retrasos: el del propio mando o teclado, el del juego procesando la entrada, y el del monitor mostrando la imagen. Un input lag alto hace que el juego se sienta 'pesado' incluso con buenos FPS.",
-    "relacionados": ["ping", "fps", "refresh-rate"] },
-
-  { "termino": "Frame Time", "slug": "frame-time", "categoria": "tecnico",
-    "corta": "Tiempo que tarda en generarse cada fotograma individual.",
-    "larga": "Mientras los FPS son una media, el frame time muestra la consistencia real: dos juegos pueden tener los mismos FPS medios pero uno con frame time estable (se siente suave) y otro irregular (se siente a tirones, aunque el contador de FPS parezca alto).",
-    "relacionados": ["fps"] },
-
-  { "termino": "VRAM", "slug": "vram", "categoria": "tecnico",
-    "corta": "Memoria dedicada de la tarjeta gráfica.",
-    "larga": "Almacena texturas, modelos 3D y buffers de imagen que la GPU necesita procesar rápido. Si un juego pide más VRAM de la que tiene tu tarjeta, sufrirás bajadas de rendimiento o texturas que tardan en cargar, aunque el resto de tu PC vaya sobrado.",
-    "relacionados": ["gpu"] },
-
-  { "termino": "GPU", "slug": "gpu", "categoria": "tecnico",
-    "corta": "Tarjeta gráfica, encargada de renderizar las imágenes del juego.",
-    "larga": "Graphics Processing Unit. Es el componente que más influye en resolución, calidad gráfica y FPS. Se diferencia de la CPU en que está optimizada para procesar miles de operaciones en paralelo, ideal para gráficos.",
-    "relacionados": ["vram", "cpu"] },
-
-  { "termino": "CPU", "slug": "cpu", "categoria": "tecnico",
-    "corta": "Procesador, el 'cerebro' del ordenador.",
-    "larga": "Gestiona la lógica del juego, la inteligencia artificial, la física y da órdenes a la GPU. En juegos con muchos NPCs o simulaciones complejas puede ser tan importante como la tarjeta gráfica, incluso más en según qué títulos.",
-    "relacionados": ["gpu"] },
-
-  { "termino": "Cuello de botella", "slug": "cuello-de-botella", "categoria": "tecnico",
-    "corta": "Cuando un componente limita el rendimiento de los demás.",
-    "larga": "Ocurre, por ejemplo, cuando tienes una GPU muy potente pero una CPU floja: la GPU se queda esperando datos y no rinde a su máximo. Se puede dar al revés también. Detectar el cuello de botella ayuda a saber qué pieza merece la pena actualizar primero.",
-    "relacionados": ["cpu", "gpu"] },
-
-  { "termino": "DLSS", "slug": "dlss", "categoria": "tecnico",
-    "corta": "Tecnología de NVIDIA que genera fotogramas con IA para ganar rendimiento.",
-    "larga": "Deep Learning Super Sampling renderiza el juego a menor resolución interna y usa inteligencia artificial para reconstruirlo a mayor resolución, ganando FPS con una pérdida de calidad visual mínima. Exclusivo de tarjetas NVIDIA RTX.",
-    "relacionados": ["fsr", "ray-tracing"] },
-
-  { "termino": "FSR", "slug": "fsr", "categoria": "tecnico",
-    "corta": "Tecnología de AMD equivalente a DLSS, compatible con más tarjetas.",
-    "larga": "FidelityFX Super Resolution cumple la misma función que DLSS (mejorar el rendimiento reconstruyendo la imagen), pero no depende del hardware específico de NVIDIA, por lo que funciona en tarjetas AMD, NVIDIA e incluso algunas Intel.",
-    "relacionados": ["dlss"] },
-
-  { "termino": "Ray Tracing", "slug": "ray-tracing", "categoria": "tecnico",
-    "corta": "Técnica que simula el comportamiento real de la luz para gráficos más realistas.",
-    "larga": "Calcula cómo rebota la luz en las superficies para lograr reflejos, sombras e iluminación mucho más realistas que los métodos tradicionales. Es muy exigente para el hardware, por lo que suele combinarse con DLSS o FSR para mantener buen rendimiento.",
-    "relacionados": ["dlss", "fsr"] },
-
-  { "termino": "Refresh Rate", "slug": "refresh-rate", "categoria": "tecnico",
-    "corta": "Cuántas veces por segundo se actualiza la imagen de un monitor, en Hz.",
-    "larga": "Un monitor de 60 Hz se actualiza 60 veces por segundo; uno de 144 Hz o 240 Hz lo hace muchas más veces, mostrando el movimiento de forma más fluida. Para aprovecharlo, el juego debe generar FPS suficientes: un monitor de 144 Hz no sirve de mucho si el juego va a 40 FPS.",
-    "relacionados": ["fps", "v-sync"] },
-
-  { "termino": "V-Sync", "slug": "v-sync", "categoria": "tecnico",
-    "corta": "Sincroniza los FPS del juego con el refresco del monitor para evitar cortes de imagen.",
-    "larga": "La sincronización vertical evita el 'screen tearing' (cuando se ve la pantalla partida horizontalmente por dos fotogramas distintos), pero puede introducir input lag adicional. Tecnologías como G-Sync o FreeSync logran un efecto similar sin ese coste.",
-    "relacionados": ["refresh-rate", "input-lag"] },
-
-  { "termino": "Roguelike", "slug": "roguelike", "categoria": "generos",
-    "corta": "Juego con niveles generados aleatoriamente y muerte permanente.",
-    "larga": "Cada partida es distinta porque el escenario se genera de nuevo, y si mueres, empiezas desde cero (sin conservar progreso dentro de la run). El nombre viene del juego 'Rogue' de los años 80.",
-    "relacionados": ["roguelite"] },
-
-  { "termino": "Roguelite", "slug": "roguelite", "categoria": "generos",
-    "corta": "Como un roguelike, pero conservas cierto progreso entre partidas.",
-    "larga": "Comparte la generación aleatoria y la muerte permanente del roguelike, pero añade mejoras persistentes (dinero, desbloqueos, habilidades) que se mantienen aunque mueras, haciendo cada intento un poco más fácil que el anterior. Ejemplos: Hades, Dead Cells.",
-    "relacionados": ["roguelike"] },
-
-  { "termino": "Metroidvania", "slug": "metroidvania", "categoria": "generos",
-    "corta": "Exploración 2D no lineal con habilidades que desbloquean nuevas zonas.",
-    "larga": "El nombre mezcla Metroid y Castlevania, los juegos que popularizaron el estilo: un mapa interconectado donde vas volviendo sobre tus pasos a medida que consigues nuevas habilidades (un doble salto, por ejemplo) que abren caminos antes bloqueados.",
-    "relacionados": [] },
-
-  { "termino": "Souls-like", "slug": "souls-like", "categoria": "generos",
-    "corta": "Juego de acción con alta dificultad, inspirado en Dark Souls.",
-    "larga": "Se caracteriza por combates exigentes y punitivos, pérdida de recursos al morir (que puedes recuperar volviendo al lugar de tu muerte), y una narrativa contada de forma indirecta a través del entorno.",
-    "relacionados": [] },
-
-  { "termino": "Battle Royale", "slug": "battle-royale", "categoria": "generos",
-    "corta": "Modo de juego donde muchos jugadores compiten hasta que solo queda uno (o un equipo).",
-    "larga": "El mapa suele reducirse con el tiempo (una 'zona' que se cierra) para forzar encuentros entre jugadores. Ejemplos: Fortnite, Warzone, Apex Legends.",
-    "relacionados": [] },
-
-  { "termino": "MOBA", "slug": "moba", "categoria": "generos",
-    "corta": "Multiplayer Online Battle Arena: dos equipos luchan por destruir la base rival.",
-    "larga": "Cada jugador controla un único personaje con habilidades propias, y el objetivo es avanzar por 'líneas' (lanes) destruyendo torres hasta llegar a la base enemiga. Ejemplos: League of Legends, Dota 2.",
-    "relacionados": [] },
-
-  { "termino": "Sandbox", "slug": "sandbox", "categoria": "generos",
-    "corta": "Juego con gran libertad para crear, construir o experimentar sin objetivos fijos.",
-    "larga": "El nombre viene de 'caja de arena': el jugador tiene las herramientas y decide qué hacer con ellas, con poca o ninguna guía impuesta. Ejemplos: Minecraft, Garry's Mod.",
-    "relacionados": ["open-world"] },
-
-  { "termino": "Open World (mundo abierto)", "slug": "open-world", "categoria": "generos",
-    "corta": "Juego con un mapa grande y explorable libremente, sin niveles separados.",
-    "larga": "A diferencia de los juegos por niveles, un mundo abierto te deja moverte libremente entre zonas, normalmente combinando una historia principal con misiones secundarias opcionales. No implica necesariamente falta de objetivos, a diferencia del sandbox.",
-    "relacionados": ["sandbox"] },
-
-  { "termino": "Hack and Slash", "slug": "hack-and-slash", "categoria": "generos",
-    "corta": "Juego de acción centrado en combate cuerpo a cuerpo contra oleadas de enemigos.",
-    "larga": "Prioriza combos vistosos y ritmo de combate frenético sobre la exploración o el sigilo. Ejemplos: Devil May Cry, Bayonetta, Diablo (en su vertiente de acción/rol).",
-    "relacionados": [] },
-
-  { "termino": "Matchmaking", "slug": "matchmaking", "categoria": "online",
-    "corta": "Sistema que empareja a jugadores de nivel similar en una partida.",
-    "larga": "Suele basarse en un sistema de puntuación (rango o MMR) para intentar que las partidas sean equilibradas. Un matchmaking mal ajustado puede emparejar a jugadores de nivel muy distinto, generando partidas injustas.",
-    "relacionados": ["smurf", "mmr"] },
-
-  { "termino": "MMR", "slug": "mmr", "categoria": "online",
-    "corta": "Match Making Rating: puntuación interna que mide tu nivel de juego.",
-    "larga": "No siempre es visible para el jugador (a diferencia del rango, que sí lo es). El sistema de matchmaking usa el MMR para intentar emparejarte con y contra jugadores de nivel similar.",
-    "relacionados": ["matchmaking"] },
-
-  { "termino": "Smurf", "slug": "smurf", "categoria": "online",
-    "corta": "Jugador experimentado que usa una cuenta nueva para jugar contra principiantes.",
-    "larga": "Al tener una cuenta sin historial, el sistema de matchmaking la empareja con jugadores de bajo nivel, dando una ventaja injusta al smurf. Es un problema habitual en juegos competitivos con muchas quejas de la comunidad.",
-    "relacionados": ["matchmaking"] },
-
-  { "termino": "Crossplay", "slug": "crossplay", "categoria": "online",
-    "corta": "Poder jugar online entre distintas plataformas (PC, PlayStation, Xbox, Switch...).",
-    "larga": "Permite que un jugador de PC y otro de consola compartan la misma partida. No siempre está activado por defecto ni disponible en todos los juegos, y a veces se puede desactivar para evitar jugar contra el ratón y teclado si usas mando.",
-    "relacionados": ["cross-progression"] },
-
-  { "termino": "Cross-progression", "slug": "cross-progression", "categoria": "online",
-    "corta": "Poder continuar tu progreso en un juego cambiando de plataforma.",
-    "larga": "Distinto del crossplay: aquí no se trata de jugar contra otras plataformas, sino de que tu partida guardada, nivel o inventario te acompañen si pasas de PC a consola o viceversa.",
-    "relacionados": ["crossplay"] },
-
-  { "termino": "Tick Rate", "slug": "tick-rate", "categoria": "online",
-    "corta": "Cuántas veces por segundo actualiza el servidor el estado de la partida.",
-    "larga": "Un servidor con tick rate bajo (por ejemplo 20) actualiza la posición de jugadores y disparos con menos frecuencia que uno de 64 o 128, lo que puede hacer que impactos que deberían contar no se registren bien. Muy relevante en shooters competitivos.",
-    "relacionados": ["ping", "hitbox"] },
-
-  { "termino": "Hitbox", "slug": "hitbox", "categoria": "tecnico",
-    "corta": "Zona invisible que determina si un golpe o disparo impacta.",
-    "larga": "No siempre coincide exactamente con el modelo visual del personaje; puede ser algo más grande o pequeña. Un hitbox mal calibrado genera la sensación de 'me han matado detrás de una pared' o impactos que no deberían contar.",
-    "relacionados": ["tick-rate"] },
-
-  { "termino": "Lag", "slug": "lag", "categoria": "online",
-    "corta": "Retraso o tirones causados por mala conexión o sobrecarga del servidor.",
-    "larga": "Se manifiesta como saltos en el movimiento, acciones que tardan en reflejarse o desconexiones momentáneas. Puede deberse a tu propia conexión, a la del servidor, o a la ruta de red entre ambos.",
-    "relacionados": ["ping"] },
-
-  { "termino": "AFK", "slug": "afk", "categoria": "cultura",
+  {
+    "termino": "4X",
+    "slug": "4x",
+    "categoria": "generos",
+    "corta": "Estrategia de expansión a gran escala: eXplorar, eXpandir, eXplotar, eXterminar.",
+    "larga": "Partidas largas donde empiezas con poco territorio y vas creciendo mediante exploración, colonización, gestión de recursos y, cuando hace falta, conflicto militar contra otras civilizaciones. Ejemplos: Civilization, Stellaris.",
+    "relacionados": [
+      "rts",
+      "tbs"
+    ]
+  },
+  {
+    "termino": "Achievement Hunting",
+    "slug": "achievement-hunting",
+    "categoria": "cultura",
+    "corta": "Buscar activamente completar todos los logros o trofeos de un juego.",
+    "larga": "Va más allá de jugar por diversión: implica perseguir objetivos específicos (a veces muy tediosos) solo para desbloquear el 100% de logros o el trofeo de platino.",
+    "relacionados": [
+      "backlog"
+    ]
+  },
+  {
+    "termino": "AFK",
+    "slug": "afk",
+    "categoria": "cultura",
     "corta": "Away From Keyboard: jugador ausente que no está participando activamente.",
     "larga": "Se usa tanto para avisar ('vuelvo en 5, estoy AFK') como para señalar a alguien que no está jugando y perjudica al equipo en un modo competitivo.",
-    "relacionados": ["gg", "tryhard"] },
-
-  { "termino": "GG", "slug": "gg", "categoria": "cultura",
-    "corta": "Good Game: expresión de cortesía al terminar una partida.",
-    "larga": "Se usa tanto en señal de buen juego mutuo como, en tono sarcástico, cuando una partida se da por perdida antes de tiempo ('gg' resignado).",
-    "relacionados": ["afk"] },
-
-  { "termino": "Tryhard", "slug": "tryhard", "categoria": "cultura",
-    "corta": "Jugador que se esfuerza al máximo, a veces incluso en partidas casuales.",
-    "larga": "Puede usarse de forma neutra (alguien muy competitivo) o despectiva, cuando alguien juega con máxima intensidad en un contexto donde se esperaba algo más relajado, generando frustración en el resto.",
-    "relacionados": [] },
-
-  { "termino": "Camper", "slug": "camper", "categoria": "cultura",
-    "corta": "Jugador que se queda quieto en un punto esperando a sus rivales.",
-    "larga": "Es una táctica válida en muchos shooters, aunque suele generar quejas de otros jugadores porque rompe el ritmo de juego esperado. No es tramposo, pero sí controvertido en la comunidad.",
-    "relacionados": [] },
-
-  { "termino": "Grinding", "slug": "grinding", "categoria": "cultura",
-    "corta": "Repetir una tarea muchas veces para conseguir experiencia, objetos o dinero.",
-    "larga": "Habitual en RPGs y juegos con progresión: matar los mismos enemigos, repetir la misma misión o farmear el mismo recurso una y otra vez hasta alcanzar un objetivo (subir de nivel, conseguir un objeto raro, etc.).",
-    "relacionados": ["meta"] },
-
-  { "termino": "Meta", "slug": "meta", "categoria": "cultura",
-    "corta": "La estrategia, personaje o equipo considerado más efectivo en un momento dado.",
-    "larga": "Viene de 'most effective tactics available'. El meta cambia con las actualizaciones del juego: un personaje puede pasar de ser meta a quedar obsoleto tras un nerf, y viceversa tras un buff.",
-    "relacionados": ["nerf", "buff"] },
-
-  { "termino": "Nerf", "slug": "nerf", "categoria": "cultura",
-    "corta": "Debilitar algo (un personaje, arma o habilidad) en una actualización.",
-    "larga": "Los desarrolladores nerfean elementos que consideran demasiado fuertes respecto al resto, para equilibrar el juego. Lo opuesto es un 'buff'.",
-    "relacionados": ["buff", "meta"] },
-
-  { "termino": "Buff", "slug": "buff", "categoria": "cultura",
-    "corta": "Mejorar algo (un personaje, arma o habilidad) en una actualización.",
-    "larga": "Lo contrario de un nerf: los desarrolladores refuerzan un elemento que consideran demasiado débil respecto al resto del juego para equilibrar la experiencia.",
-    "relacionados": ["nerf", "meta"] },
-
-  { "termino": "Early Access (Acceso anticipado)", "slug": "early-access", "categoria": "plataformas",
-    "corta": "Comprar y jugar un juego antes de su lanzamiento oficial, mientras aún está en desarrollo.",
-    "larga": "Permite a los jugadores probar el juego y dar feedback antes de la versión final, a cambio de aceptar que puede tener errores, contenido incompleto o cambios importantes antes del lanzamiento 1.0.",
-    "relacionados": ["beta", "day-one-patch"] },
-
-  { "termino": "Beta", "slug": "beta", "categoria": "plataformas",
-    "corta": "Versión de prueba de un juego, previa a su lanzamiento, con fines de testeo.",
-    "larga": "A diferencia del acceso anticipado (pensado para jugarse durante meses o años), una beta suele ser temporal y limitada, orientada a que el estudio detecte errores o pruebe sus servidores antes del lanzamiento.",
-    "relacionados": ["early-access"] },
-
-  { "termino": "Day-one Patch", "slug": "day-one-patch", "categoria": "plataformas",
-    "corta": "Actualización que se descarga el mismo día de lanzamiento del juego.",
-    "larga": "Es habitual que el disco o archivo de instalación no contenga la versión más reciente del juego, por lo que al iniciarlo por primera vez se descarga un parche con correcciones o ajustes de última hora.",
-    "relacionados": ["early-access"] },
-
-  { "termino": "DLC", "slug": "dlc", "categoria": "plataformas",
-    "corta": "Downloadable Content: contenido adicional de pago para un juego ya publicado.",
-    "larga": "Puede ser desde cosméticos y misiones pequeñas hasta expansiones grandes con horas de contenido nuevo. Se diferencia del season pass en que un DLC suele venderse de forma individual, no como paquete de varios.",
-    "relacionados": ["season-pass"] },
-
-  { "termino": "Season Pass (Pase de temporada)", "slug": "season-pass", "categoria": "plataformas",
-    "corta": "Pago único que da acceso a varios contenidos futuros de un juego.",
-    "larga": "En vez de comprar cada DLC por separado, el season pass agrupa el contenido planeado para una temporada (personajes, misiones, cosméticos) en una sola compra, normalmente más barata que sumar cada pieza suelta.",
-    "relacionados": ["dlc"] },
-
-  { "termino": "Remaster", "slug": "remaster", "categoria": "plataformas",
-    "corta": "Versión mejorada de un juego antiguo, con gráficos y rendimiento actualizados.",
-    "larga": "Mantiene el juego original prácticamente intacto en jugabilidad y contenido, pero mejora resolución, texturas o rendimiento para hardware moderno. Menos ambicioso que un remake.",
-    "relacionados": ["remake"] },
-
-  { "termino": "Remake", "slug": "remake", "categoria": "plataformas",
-    "corta": "Versión construida desde cero de un juego antiguo, con el mismo argumento base.",
-    "larga": "A diferencia del remaster, un remake suele rehacer gráficos, jugabilidad y a veces hasta partes de la historia desde cero, usando tecnología moderna, mientras mantiene la esencia del juego original.",
-    "relacionados": ["remaster"] },
-
-  { "termino": "Backwards Compatibility (Retrocompatibilidad)", "slug": "backwards-compatibility", "categoria": "plataformas",
+    "relacionados": [
+      "gg",
+      "tryhard"
+    ]
+  },
+  {
+    "termino": "Aimbot",
+    "slug": "aimbot",
+    "categoria": "online",
+    "corta": "Programa tramposo que apunta automáticamente a los rivales por el jugador.",
+    "larga": "Es una de las trampas más comunes y perseguidas en shooters online, ya que da una ventaja de puntería sobrehumana. Su uso suele conllevar sanciones severas si se detecta.",
+    "relacionados": [
+      "wallhack",
+      "anti-cheat"
+    ]
+  },
+  {
+    "termino": "Anti-aliasing (Suavizado de bordes)",
+    "slug": "anti-aliasing",
+    "categoria": "tecnico",
+    "corta": "Técnica que suaviza los bordes dentados de los gráficos en pantalla.",
+    "larga": "Sin él, los bordes de objetos y personajes se ven escalonados ('dientes de sierra'), especialmente notorio en resoluciones bajas. Hay muchos métodos (MSAA, TAA, FXAA...) con distinto coste de rendimiento y calidad de resultado.",
+    "relacionados": [
+      "taa"
+    ]
+  },
+  {
+    "termino": "Anti-cheat",
+    "slug": "anti-cheat",
+    "categoria": "online",
+    "corta": "Sistema que detecta y sanciona el uso de trampas en un juego online.",
+    "larga": "Puede analizar el juego en distintos niveles, desde revisar archivos y memoria mientras juegas hasta, en casos más invasivos, funcionar a nivel de sistema operativo (anti-cheat 'a nivel de kernel'), lo que genera debate sobre privacidad frente a eficacia contra tramposos.",
+    "relacionados": [
+      "aimbot",
+      "wallhack",
+      "vac-ban"
+    ]
+  },
+  {
+    "termino": "ARPG",
+    "slug": "arpg",
+    "categoria": "generos",
+    "corta": "RPG de acción: el combate se juega en tiempo real, no por turnos.",
+    "larga": "Action RPG. Combina la progresión típica de un RPG (subir de nivel, mejorar equipo) con combate directo controlado en tiempo real, a menudo con mucho hack and slash. Ejemplos: Diablo, Path of Exile, Elden Ring.",
+    "relacionados": [
+      "rpg",
+      "hack-and-slash",
+      "souls-like"
+    ]
+  },
+  {
+    "termino": "Autoguardado (Autosave)",
+    "slug": "autosave",
+    "categoria": "tecnico",
+    "corta": "Sistema que guarda la partida automáticamente sin que el jugador lo pida.",
+    "larga": "Suele activarse en momentos concretos (checkpoints, cambios de zona, cada cierto tiempo) para evitar que el jugador pierda mucho progreso si el juego se cierra inesperadamente.",
+    "relacionados": [
+      "checkpoint",
+      "cloud-save"
+    ]
+  },
+  {
+    "termino": "Backlog",
+    "slug": "backlog",
+    "categoria": "cultura",
+    "corta": "La lista de juegos que tienes comprados o pendientes pero aún no has jugado o terminado.",
+    "larga": "Es un término muy usado en la comunidad para hablar, a menudo en tono de broma, de lo difícil que es mantenerse al día con todos los juegos que uno querría jugar frente al tiempo disponible.",
+    "relacionados": [
+      "achievement-hunting"
+    ]
+  },
+  {
+    "termino": "Backwards Compatibility (Retrocompatibilidad)",
+    "slug": "backwards-compatibility",
+    "categoria": "plataformas",
     "corta": "Poder jugar en una consola nueva a juegos de generaciones anteriores.",
     "larga": "Por ejemplo, que una PS5 pueda ejecutar juegos de PS4 sin necesidad de una versión especial. No todas las consolas ofrecen esta función, ni siempre de forma completa (a veces hay juegos concretos excluidos).",
-    "relacionados": [] },
-
-  { "termino": "Handheld (portátil de gaming)", "slug": "handheld", "categoria": "plataformas",
+    "relacionados": []
+  },
+  {
+    "termino": "Battle Pass (Pase de batalla)",
+    "slug": "battle-pass",
+    "categoria": "cultura",
+    "corta": "Sistema de progresión estacional que desbloquea recompensas cuanto más juegas.",
+    "larga": "Suele tener un nivel gratuito y otro de pago con mejores recompensas, y expira al terminar la temporada, lo que anima a jugar de forma constante mientras dura. Muy habitual en juegos como servicio.",
+    "relacionados": [
+      "live-service",
+      "microtransaccion"
+    ]
+  },
+  {
+    "termino": "Battle Royale",
+    "slug": "battle-royale",
+    "categoria": "generos",
+    "corta": "Modo de juego donde muchos jugadores compiten hasta que solo queda uno (o un equipo).",
+    "larga": "El mapa suele reducirse con el tiempo (una 'zona' que se cierra) para forzar encuentros entre jugadores. Ejemplos: Fortnite, Warzone, Apex Legends.",
+    "relacionados": []
+  },
+  {
+    "termino": "Beat 'em up",
+    "slug": "beat-em-up",
+    "categoria": "generos",
+    "corta": "Juego de pelea contra oleadas de enemigos avanzando por un escenario, normalmente en 2D.",
+    "larga": "Clásico de recreativas: caminas hacia la derecha (o por zonas) golpeando a todo lo que se cruza, a menudo en cooperativo. Ejemplos: Streets of Rage, Final Fight.",
+    "relacionados": [
+      "hack-and-slash",
+      "fighting-game"
+    ]
+  },
+  {
+    "termino": "Beta",
+    "slug": "beta",
+    "categoria": "plataformas",
+    "corta": "Versión de prueba de un juego, previa a su lanzamiento, con fines de testeo.",
+    "larga": "A diferencia del acceso anticipado (pensado para jugarse durante meses o años), una beta suele ser temporal y limitada, orientada a que el estudio detecte errores o pruebe sus servidores antes del lanzamiento.",
+    "relacionados": [
+      "early-access"
+    ]
+  },
+  {
+    "termino": "Boosting",
+    "slug": "boosting",
+    "categoria": "cultura",
+    "corta": "Pagar (o ayudar) a que otra persona juegue en tu cuenta para subir de rango.",
+    "larga": "Suele estar prohibido en juegos competitivos porque falsea el nivel real reflejado por el rango, y puede acabar en sanción de cuenta si se detecta.",
+    "relacionados": [
+      "ranked",
+      "smurf"
+    ]
+  },
+  {
+    "termino": "Buff",
+    "slug": "buff",
+    "categoria": "cultura",
+    "corta": "Mejorar algo (un personaje, arma o habilidad) en una actualización.",
+    "larga": "Lo contrario de un nerf: los desarrolladores refuerzan un elemento que consideran demasiado débil respecto al resto del juego para equilibrar la experiencia.",
+    "relacionados": [
+      "nerf",
+      "meta"
+    ]
+  },
+  {
+    "termino": "Camper",
+    "slug": "camper",
+    "categoria": "cultura",
+    "corta": "Jugador que se queda quieto en un punto esperando a sus rivales.",
+    "larga": "Es una táctica válida en muchos shooters, aunque suele generar quejas de otros jugadores porque rompe el ritmo de juego esperado. No es tramposo, pero sí controvertido en la comunidad.",
+    "relacionados": []
+  },
+  {
+    "termino": "Canon",
+    "slug": "canon",
+    "categoria": "cultura",
+    "corta": "Lo que se considera parte oficial y válida de la historia de una saga.",
+    "larga": "Cuando una saga tiene varias secuelas, spin-offs o incluso finales alternativos, el 'canon' es la versión que los desarrolladores consideran la historia 'real' a efectos de continuidad futura.",
+    "relacionados": [
+      "headcanon",
+      "lore"
+    ]
+  },
+  {
+    "termino": "Checkpoint",
+    "slug": "checkpoint",
+    "categoria": "tecnico",
+    "corta": "Punto del juego donde se guarda el progreso automáticamente.",
+    "larga": "Si mueres o sales del juego, normalmente vuelves al último checkpoint alcanzado en vez de al principio del nivel. Es distinto de un guardado manual, que el jugador decide cuándo hacer.",
+    "relacionados": [
+      "autosave"
+    ]
+  },
+  {
+    "termino": "City Builder",
+    "slug": "city-builder",
+    "categoria": "generos",
+    "corta": "Juego de gestión centrado en planificar y hacer crecer una ciudad o asentamiento.",
+    "larga": "Hay que equilibrar recursos, población, economía e infraestructura mientras la ciudad crece, normalmente sin un final fijo. Ejemplos: Cities: Skylines, SimCity.",
+    "relacionados": []
+  },
+  {
+    "termino": "Clip",
+    "slug": "clip",
+    "categoria": "cultura",
+    "corta": "Fragmento corto de una partida grabado para compartir, normalmente un buen momento.",
+    "larga": "Puede capturarse manualmente o mediante funciones automáticas de la plataforma (como 'grabar los últimos X minutos'). Es la unidad básica de contenido en la cultura de streaming y redes sociales gaming.",
+    "relacionados": [
+      "vod"
+    ]
+  },
+  {
+    "termino": "CPU",
+    "slug": "cpu",
+    "categoria": "tecnico",
+    "corta": "Procesador, el 'cerebro' del ordenador.",
+    "larga": "Gestiona la lógica del juego, la inteligencia artificial, la física y da órdenes a la GPU. En juegos con muchos NPCs o simulaciones complejas puede ser tan importante como la tarjeta gráfica, incluso más en según qué títulos.",
+    "relacionados": [
+      "gpu"
+    ]
+  },
+  {
+    "termino": "Cross-buy",
+    "slug": "cross-buy",
+    "categoria": "plataformas",
+    "corta": "Comprar un juego una vez y tener acceso a él en varias plataformas del mismo ecosistema.",
+    "larga": "Por ejemplo, comprar un juego de PS4 y recibir también la versión de PS5 sin pagar de nuevo. No debe confundirse con crossplay (jugar entre plataformas) ni cross-progression (compartir el progreso).",
+    "relacionados": [
+      "crossplay",
+      "cross-progression"
+    ]
+  },
+  {
+    "termino": "Cross-progression",
+    "slug": "cross-progression",
+    "categoria": "online",
+    "corta": "Poder continuar tu progreso en un juego cambiando de plataforma.",
+    "larga": "Distinto del crossplay: aquí no se trata de jugar contra otras plataformas, sino de que tu partida guardada, nivel o inventario te acompañen si pasas de PC a consola o viceversa.",
+    "relacionados": [
+      "crossplay"
+    ]
+  },
+  {
+    "termino": "Crossplay",
+    "slug": "crossplay",
+    "categoria": "online",
+    "corta": "Poder jugar online entre distintas plataformas (PC, PlayStation, Xbox, Switch...).",
+    "larga": "Permite que un jugador de PC y otro de consola compartan la misma partida. No siempre está activado por defecto ni disponible en todos los juegos, y a veces se puede desactivar para evitar jugar contra el ratón y teclado si usas mando.",
+    "relacionados": [
+      "cross-progression"
+    ]
+  },
+  {
+    "termino": "CRPG",
+    "slug": "crpg",
+    "categoria": "generos",
+    "corta": "RPG de raíces occidentales, heredero del rol de mesa como Dungeons & Dragons.",
+    "larga": "Computer RPG. Suele tener cámara isométrica o táctica, mucho texto y diálogo con ramificaciones reales, sistemas de reglas complejos heredados del rol de mesa, y gran libertad para resolver situaciones de formas distintas. Ejemplos: Baldur's Gate, Divinity: Original Sin, Disco Elysium.",
+    "relacionados": [
+      "rpg",
+      "jrpg",
+      "srpg"
+    ]
+  },
+  {
+    "termino": "Cuello de botella",
+    "slug": "cuello-de-botella",
+    "categoria": "tecnico",
+    "corta": "Cuando un componente limita el rendimiento de los demás.",
+    "larga": "Ocurre, por ejemplo, cuando tienes una GPU muy potente pero una CPU floja: la GPU se queda esperando datos y no rinde a su máximo. Se puede dar al revés también. Detectar el cuello de botella ayuda a saber qué pieza merece la pena actualizar primero.",
+    "relacionados": [
+      "cpu",
+      "gpu"
+    ]
+  },
+  {
+    "termino": "Cutscene (Escena cinemática)",
+    "slug": "cutscene",
+    "categoria": "cultura",
+    "corta": "Secuencia narrativa donde el jugador pierde el control del personaje, similar a una escena de película.",
+    "larga": "Se usa para avanzar la trama, mostrar diálogos importantes o momentos espectaculares que serían difíciles de lograr con jugabilidad normal. Puede ser pregrabada o generada con el motor del propio juego.",
+    "relacionados": [
+      "qte"
+    ]
+  },
+  {
+    "termino": "Dating Sim",
+    "slug": "dating-sim",
+    "categoria": "generos",
+    "corta": "Juego centrado en desarrollar relaciones con distintos personajes.",
+    "larga": "Suele combinarse con mecánicas de visual novel: eliges diálogos y acciones que aumentan o reducen tu afinidad con cada personaje, buscando distintos finales según con quién termines la historia.",
+    "relacionados": [
+      "visual-novel"
+    ]
+  },
+  {
+    "termino": "Day-one Patch",
+    "slug": "day-one-patch",
+    "categoria": "plataformas",
+    "corta": "Actualización que se descarga el mismo día de lanzamiento del juego.",
+    "larga": "Es habitual que el disco o archivo de instalación no contenga la versión más reciente del juego, por lo que al iniciarlo por primera vez se descarga un parche con correcciones o ajustes de última hora.",
+    "relacionados": [
+      "early-access"
+    ]
+  },
+  {
+    "termino": "Deck Builder",
+    "slug": "deck-builder",
+    "categoria": "generos",
+    "corta": "Juego de cartas donde vas construyendo y mejorando tu mazo a lo largo de la partida.",
+    "larga": "Empiezas con un mazo básico y, a medida que juegas, añades y quitas cartas para optimizar combinaciones (sinergias). Muy habitual combinado con estructura de roguelite. Ejemplos: Slay the Spire, Balatro.",
+    "relacionados": [
+      "roguelite"
+    ]
+  },
+  {
+    "termino": "Demo",
+    "slug": "demo",
+    "categoria": "plataformas",
+    "corta": "Versión gratuita y reducida de un juego, pensada para probarlo antes de comprarlo.",
+    "larga": "Puede limitarse por tiempo, por contenido (solo el primer nivel o capítulo) o ambas cosas. A veces el progreso de la demo se puede transferir al juego completo si luego lo compras.",
+    "relacionados": [
+      "vertical-slice"
+    ]
+  },
+  {
+    "termino": "DirectStorage",
+    "slug": "directstorage",
+    "categoria": "tecnico",
+    "corta": "Tecnología que permite cargar datos del SSD directamente a la GPU, sin pasar tanto por la CPU.",
+    "larga": "Reduce cuellos de botella en la carga de texturas y niveles, aprovechando mejor la velocidad de los SSD modernos. Requiere que tanto el juego como el sistema la soporten para notar la diferencia.",
+    "relacionados": [
+      "tiempos-de-carga"
+    ]
+  },
+  {
+    "termino": "DLC",
+    "slug": "dlc",
+    "categoria": "plataformas",
+    "corta": "Downloadable Content: contenido adicional de pago para un juego ya publicado.",
+    "larga": "Puede ser desde cosméticos y misiones pequeñas hasta expansiones grandes con horas de contenido nuevo. Se diferencia del season pass en que un DLC suele venderse de forma individual, no como paquete de varios.",
+    "relacionados": [
+      "season-pass"
+    ]
+  },
+  {
+    "termino": "DLSS",
+    "slug": "dlss",
+    "categoria": "tecnico",
+    "corta": "Tecnología de NVIDIA que genera fotogramas con IA para ganar rendimiento.",
+    "larga": "Deep Learning Super Sampling renderiza el juego a menor resolución interna y usa inteligencia artificial para reconstruirlo a mayor resolución, ganando FPS con una pérdida de calidad visual mínima. Exclusivo de tarjetas NVIDIA RTX.",
+    "relacionados": [
+      "fsr",
+      "ray-tracing"
+    ]
+  },
+  {
+    "termino": "Draw Distance (Distancia de dibujado)",
+    "slug": "draw-distance",
+    "categoria": "tecnico",
+    "corta": "Hasta qué distancia se renderiza el entorno con detalle antes de simplificarse o desaparecer.",
+    "larga": "Una distancia de dibujado corta ahorra rendimiento pero hace que el paisaje lejano se vea borroso o incluso invisible; una distancia larga es más exigente pero más inmersiva, sobre todo en mundos abiertos.",
+    "relacionados": [
+      "pop-in"
+    ]
+  },
+  {
+    "termino": "Early Access (Acceso anticipado)",
+    "slug": "early-access",
+    "categoria": "plataformas",
+    "corta": "Comprar y jugar un juego antes de su lanzamiento oficial, mientras aún está en desarrollo.",
+    "larga": "Permite a los jugadores probar el juego y dar feedback antes de la versión final, a cambio de aceptar que puede tener errores, contenido incompleto o cambios importantes antes del lanzamiento 1.0.",
+    "relacionados": [
+      "beta",
+      "day-one-patch"
+    ]
+  },
+  {
+    "termino": "Easter Egg",
+    "slug": "easter-egg",
+    "categoria": "cultura",
+    "corta": "Referencia, secreto o broma oculta dentro de un juego, no relacionada con la mecánica principal.",
+    "larga": "Puede ser un guiño a otro juego, una broma interna del equipo de desarrollo o una referencia cultural escondida en algún rincón del mapa, pensada para que la comunidad la descubra y comparta.",
+    "relacionados": [
+      "lore"
+    ]
+  },
+  {
+    "termino": "Edición coleccionista",
+    "slug": "edicion-coleccionista",
+    "categoria": "plataformas",
+    "corta": "Versión especial y más cara de un juego, con extras físicos o digitales.",
+    "larga": "Puede incluir figuras, artbooks, bandas sonoras, steelbooks o contenido digital exclusivo. Suele ser una edición limitada, pensada para coleccionistas y fans más entregados.",
+    "relacionados": [
+      "season-pass"
+    ]
+  },
+  {
+    "termino": "Emulación",
+    "slug": "emulacion",
+    "categoria": "plataformas",
+    "corta": "Ejecutar un juego de una plataforma distinta simulando su hardware por software.",
+    "larga": "Un emulador de una consola antigua permite jugar sus juegos en PC (u otra consola) recreando su funcionamiento interno mediante software. Su legalidad varía según el país y de dónde provenga la copia del juego usada.",
+    "relacionados": [
+      "backwards-compatibility"
+    ]
+  },
+  {
+    "termino": "Exclusividad temporal (Timed exclusive)",
+    "slug": "timed-exclusive",
+    "categoria": "plataformas",
+    "corta": "Juego exclusivo de una plataforma solo durante un tiempo limitado.",
+    "larga": "Pasado ese periodo (que puede ser meses o años), el juego se lanza también en otras plataformas. Es habitual como acuerdo comercial entre el estudio y la plataforma que paga por esa ventana de exclusividad.",
+    "relacionados": [
+      "exclusivo"
+    ]
+  },
+  {
+    "termino": "Exclusivo",
+    "slug": "exclusivo",
+    "categoria": "plataformas",
+    "corta": "Juego disponible solo en una plataforma concreta.",
+    "larga": "Puede ser una exclusiva de consola (solo PlayStation, por ejemplo) o de tienda en PC (solo Epic Games Store). Es una de las estrategias que usan las plataformas para atraer compradores hacia su ecosistema.",
+    "relacionados": [
+      "timed-exclusive"
+    ]
+  },
+  {
+    "termino": "Extraction Shooter",
+    "slug": "extraction-shooter",
+    "categoria": "generos",
+    "corta": "Shooter donde entras a una zona con botín, y si mueres, pierdes lo que llevabas encima.",
+    "larga": "El riesgo real de perder tu equipo al morir (a diferencia de un looter shooter normal) genera mucha más tensión en cada partida. El objetivo es sobrevivir y 'extraer' con el botín conseguido. Ejemplos: Escape from Tarkov, Hunt: Showdown.",
+    "relacionados": [
+      "looter-shooter",
+      "survival"
+    ]
+  },
+  {
+    "termino": "Family Sharing (Compartir en familia)",
+    "slug": "family-sharing",
+    "categoria": "plataformas",
+    "corta": "Función que permite compartir tu biblioteca de juegos con otras cuentas o dispositivos.",
+    "larga": "Suele tener límites: normalmente no se puede jugar el mismo juego a la vez desde ambas cuentas, y algunos juegos con funciones online quedan excluidos de la función.",
+    "relacionados": [
+      "cross-buy"
+    ]
+  },
+  {
+    "termino": "Fanservice",
+    "slug": "fanservice",
+    "categoria": "cultura",
+    "corta": "Contenido añadido específicamente para complacer a los fans, más que por necesidad narrativa.",
+    "larga": "Puede ser un cameo, una referencia a un juego anterior de la saga o un guiño directo a la comunidad. No es negativo por definición, aunque en exceso puede sentirse forzado o sustituir a un buen desarrollo narrativo.",
+    "relacionados": [
+      "lore"
+    ]
+  },
+  {
+    "termino": "Farming Sim",
+    "slug": "farming-sim",
+    "categoria": "generos",
+    "corta": "Juego centrado en cultivar, criar animales y gestionar una granja.",
+    "larga": "Combina rutina (plantar, regar, cosechar) con progresión a largo plazo (ampliar la granja, mejorar herramientas) y, a menudo, relaciones sociales con el pueblo. Ejemplos: Stardew Valley, Harvest Moon.",
+    "relacionados": [
+      "life-sim"
+    ]
+  },
+  {
+    "termino": "FOV (Campo de visión)",
+    "slug": "fov",
+    "categoria": "tecnico",
+    "corta": "Field of View: cuánto puedes ver a los lados sin girar la cámara.",
+    "larga": "Un FOV bajo se siente más 'zoom' y puede provocar mareo a algunos jugadores; uno alto muestra más entorno a los lados pero distorsiona un poco los bordes de la imagen. Muchos shooters permiten ajustarlo manualmente.",
+    "relacionados": []
+  },
+  {
+    "termino": "FPS",
+    "slug": "fps",
+    "categoria": "tecnico",
+    "corta": "Fotogramas por segundo: cuántas imágenes se muestran en pantalla cada segundo.",
+    "larga": "FPS (Frames Per Second) mide la fluidez de un juego. Cuantos más FPS, más suave se ve el movimiento. Por debajo de 30 FPS se percibe entrecortado; 60 FPS es el estándar cómodo; 120+ FPS se nota especialmente en juegos competitivos y con monitores de alta tasa de refresco.",
+    "relacionados": [
+      "refresh-rate",
+      "frame-time",
+      "v-sync"
+    ]
+  },
+  {
+    "termino": "FPS (género)",
+    "slug": "fps-genero",
+    "categoria": "generos",
+    "corta": "First Person Shooter: juego de disparos en primera persona.",
+    "larga": "Género donde ves a través de los ojos del personaje. Ejemplos: Call of Duty, Counter-Strike, Valorant. No confundir con FPS de rendimiento (fotogramas por segundo), aunque comparten siglas.",
+    "relacionados": [
+      "tps",
+      "fps"
+    ]
+  },
+  {
+    "termino": "Frame Generation",
+    "slug": "frame-generation",
+    "categoria": "tecnico",
+    "corta": "Tecnología que crea fotogramas nuevos con IA en lugar de renderizarlos de verdad.",
+    "larga": "A diferencia del upscaling (que reconstruye una imagen a mayor resolución), el frame generation inventa fotogramas completos intermedios para mostrar más FPS en pantalla. Mejora la fluidez visual pero no reduce el input lag real, e incluso puede añadir algo.",
+    "relacionados": [
+      "dlss",
+      "upscaling",
+      "input-lag"
+    ]
+  },
+  {
+    "termino": "Frame Time",
+    "slug": "frame-time",
+    "categoria": "tecnico",
+    "corta": "Tiempo que tarda en generarse cada fotograma individual.",
+    "larga": "Mientras los FPS son una media, el frame time muestra la consistencia real: dos juegos pueden tener los mismos FPS medios pero uno con frame time estable (se siente suave) y otro irregular (se siente a tirones, aunque el contador de FPS parezca alto).",
+    "relacionados": [
+      "fps"
+    ]
+  },
+  {
+    "termino": "Free to Play",
+    "slug": "free-to-play",
+    "categoria": "cultura",
+    "corta": "Juego gratuito para descargar y jugar, que se financia de otras formas (normalmente microtransacciones).",
+    "larga": "No implica necesariamente que sea 'pay to win': muchos free to play se financian solo con cosméticos opcionales que no afectan al equilibrio competitivo. Ejemplos: Fortnite, League of Legends.",
+    "relacionados": [
+      "microtransaccion",
+      "live-service"
+    ]
+  },
+  {
+    "termino": "FSR",
+    "slug": "fsr",
+    "categoria": "tecnico",
+    "corta": "Tecnología de AMD equivalente a DLSS, compatible con más tarjetas.",
+    "larga": "FidelityFX Super Resolution cumple la misma función que DLSS (mejorar el rendimiento reconstruyendo la imagen), pero no depende del hardware específico de NVIDIA, por lo que funciona en tarjetas AMD, NVIDIA e incluso algunas Intel.",
+    "relacionados": [
+      "dlss"
+    ]
+  },
+  {
+    "termino": "Físico vs digital",
+    "slug": "fisico-vs-digital",
+    "categoria": "plataformas",
+    "corta": "Comprar un juego en formato disco/cartucho frente a comprarlo como descarga.",
+    "larga": "Lo físico permite revender o prestar el juego (según la plataforma) y no depende de espacio de almacenamiento previo a la instalación; lo digital es más cómodo (sin cambiar discos) pero normalmente no se puede revender ni compartir con la misma libertad.",
+    "relacionados": []
+  },
+  {
+    "termino": "GG",
+    "slug": "gg",
+    "categoria": "cultura",
+    "corta": "Good Game: expresión de cortesía al terminar una partida.",
+    "larga": "Se usa tanto en señal de buen juego mutuo como, en tono sarcástico, cuando una partida se da por perdida antes de tiempo ('gg' resignado).",
+    "relacionados": [
+      "afk"
+    ]
+  },
+  {
+    "termino": "GPU",
+    "slug": "gpu",
+    "categoria": "tecnico",
+    "corta": "Tarjeta gráfica, encargada de renderizar las imágenes del juego.",
+    "larga": "Graphics Processing Unit. Es el componente que más influye en resolución, calidad gráfica y FPS. Se diferencia de la CPU en que está optimizada para procesar miles de operaciones en paralelo, ideal para gráficos.",
+    "relacionados": [
+      "vram",
+      "cpu"
+    ]
+  },
+  {
+    "termino": "Griefing",
+    "slug": "griefing",
+    "categoria": "cultura",
+    "corta": "Molestar deliberadamente a otros jugadores sin buscar ganar, solo fastidiar.",
+    "larga": "Se diferencia de jugar mal o perder por falta de habilidad: el griefing es intencional, como bloquear el paso a compañeros, destruir sus construcciones o sabotear el equipo a propósito.",
+    "relacionados": [
+      "toxicidad"
+    ]
+  },
+  {
+    "termino": "Grinding",
+    "slug": "grinding",
+    "categoria": "cultura",
+    "corta": "Repetir una tarea muchas veces para conseguir experiencia, objetos o dinero.",
+    "larga": "Habitual en RPGs y juegos con progresión: matar los mismos enemigos, repetir la misma misión o farmear el mismo recurso una y otra vez hasta alcanzar un objetivo (subir de nivel, conseguir un objeto raro, etc.).",
+    "relacionados": [
+      "meta"
+    ]
+  },
+  {
+    "termino": "Guardado en la nube (Cloud save)",
+    "slug": "cloud-save",
+    "categoria": "tecnico",
+    "corta": "Partida guardada almacenada online, accesible desde distintos dispositivos.",
+    "larga": "Permite continuar tu partida en otro PC o consola sin transferir archivos manualmente. Es la base técnica que hace posible el cross-progression entre plataformas.",
+    "relacionados": [
+      "cross-progression",
+      "autosave"
+    ]
+  },
+  {
+    "termino": "Hack and Slash",
+    "slug": "hack-and-slash",
+    "categoria": "generos",
+    "corta": "Juego de acción centrado en combate cuerpo a cuerpo contra oleadas de enemigos.",
+    "larga": "Prioriza combos vistosos y ritmo de combate frenético sobre la exploración o el sigilo. Ejemplos: Devil May Cry, Bayonetta, Diablo (en su vertiente de acción/rol).",
+    "relacionados": []
+  },
+  {
+    "termino": "Handheld (portátil de gaming)",
+    "slug": "handheld",
+    "categoria": "plataformas",
     "corta": "Dispositivo portátil dedicado a jugar, como Steam Deck o Nintendo Switch.",
     "larga": "Combina hardware de consola o PC en un formato portátil con pantalla integrada. Steam Deck, ASUS ROG Ally o Nintendo Switch son ejemplos, cada uno con distinto enfoque de rendimiento y catálogo de juegos.",
-    "relacionados": [] },
-
-  { "termino": "Speedrun", "slug": "speedrun", "categoria": "cultura",
+    "relacionados": []
+  },
+  {
+    "termino": "HDR",
+    "slug": "hdr",
+    "categoria": "tecnico",
+    "corta": "Alto rango dinámico: más contraste entre zonas oscuras y claras de la imagen.",
+    "larga": "High Dynamic Range permite mostrar negros más profundos y blancos más brillantes a la vez, con más matices de color intermedios. Requiere tanto que el juego lo soporte como un monitor o TV compatible con HDR para notarse de verdad.",
+    "relacionados": []
+  },
+  {
+    "termino": "Headcanon",
+    "slug": "headcanon",
+    "categoria": "cultura",
+    "corta": "Interpretación personal de un fan sobre la historia, no confirmada oficialmente.",
+    "larga": "Los fans a veces rellenan huecos de la historia con sus propias teorías o interpretaciones, que no son parte del canon oficial pero que la comunidad puede adoptar como si lo fueran de forma extraoficial.",
+    "relacionados": [
+      "canon"
+    ]
+  },
+  {
+    "termino": "Hitbox",
+    "slug": "hitbox",
+    "categoria": "tecnico",
+    "corta": "Zona invisible que determina si un golpe o disparo impacta.",
+    "larga": "No siempre coincide exactamente con el modelo visual del personaje; puede ser algo más grande o pequeña. Un hitbox mal calibrado genera la sensación de 'me han matado detrás de una pared' o impactos que no deberían contar.",
+    "relacionados": [
+      "tick-rate"
+    ]
+  },
+  {
+    "termino": "Hotfix",
+    "slug": "hotfix",
+    "categoria": "cultura",
+    "corta": "Actualización rápida y puntual para corregir un problema urgente.",
+    "larga": "A diferencia de un parche normal (más grande y planificado), un hotfix suele lanzarse con poca antelación para arreglar algo crítico, como un error que rompe el juego o un exploit grave.",
+    "relacionados": [
+      "patch-notes"
+    ]
+  },
+  {
+    "termino": "Immersive Sim",
+    "slug": "immersive-sim",
+    "categoria": "generos",
+    "corta": "Juego que da muchas formas distintas de resolver cada situación, sin un único camino correcto.",
+    "larga": "En vez de guiar al jugador por una solución diseñada, un immersive sim ofrece sistemas que interactúan entre sí (sigilo, hackeo, combate, entorno físico) para que cada jugador improvise su propia manera de superar un reto. Ejemplos: Dishonored, Deus Ex, Prey.",
+    "relacionados": [
+      "stealth"
+    ]
+  },
+  {
+    "termino": "Input Lag",
+    "slug": "input-lag",
+    "categoria": "tecnico",
+    "corta": "Retraso entre pulsar un botón y ver el resultado en pantalla.",
+    "larga": "Es la suma de varios retrasos: el del propio mando o teclado, el del juego procesando la entrada, y el del monitor mostrando la imagen. Un input lag alto hace que el juego se sienta 'pesado' incluso con buenos FPS.",
+    "relacionados": [
+      "ping",
+      "fps",
+      "refresh-rate"
+    ]
+  },
+  {
+    "termino": "JRPG",
+    "slug": "jrpg",
+    "categoria": "generos",
+    "corta": "RPG con estética anime y, tradicionalmente, combate por turnos.",
+    "larga": "Más que 'RPG japonés' a secas, lo que define a un JRPG para la mayoría de jugadores es su identidad visual y narrativa: estética anime/manga, personajes muy expresivos, historias emotivas o dramáticas, y tradicionalmente combate por turnos (aunque muchos JRPG modernos son en tiempo real). Ejemplos: Final Fantasy, Persona, Dragon Quest.",
+    "relacionados": [
+      "rpg",
+      "crpg",
+      "srpg"
+    ]
+  },
+  {
+    "termino": "Juego de lucha (Fighting game)",
+    "slug": "fighting-game",
+    "categoria": "generos",
+    "corta": "Duelo 1 contra 1 (o por equipos) basado en combos, tiempos de reacción y lectura del rival.",
+    "larga": "Cada personaje tiene su propio set de movimientos y combos. La escena competitiva es muy fuerte en este género, con términos propios como frame data, punish o tier list. Ejemplos: Street Fighter, Tekken.",
+    "relacionados": [
+      "beat-em-up"
+    ]
+  },
+  {
+    "termino": "Juego de ritmo (Rhythm game)",
+    "slug": "rhythm-game",
+    "categoria": "generos",
+    "corta": "Juego donde hay que pulsar botones o moverse siguiendo el compás de la música.",
+    "larga": "El reto es la sincronización con el ritmo, no la reacción a estímulos aleatorios. Ejemplos: Guitar Hero, Beat Saber, Osu!.",
+    "relacionados": []
+  },
+  {
+    "termino": "Lag",
+    "slug": "lag",
+    "categoria": "online",
+    "corta": "Retraso o tirones causados por mala conexión o sobrecarga del servidor.",
+    "larga": "Se manifiesta como saltos en el movimiento, acciones que tardan en reflejarse o desconexiones momentáneas. Puede deberse a tu propia conexión, a la del servidor, o a la ruta de red entre ambos.",
+    "relacionados": [
+      "ping"
+    ]
+  },
+  {
+    "termino": "LAN Party",
+    "slug": "lan-party",
+    "categoria": "cultura",
+    "corta": "Quedada presencial para jugar en red local, conectando los ordenadores físicamente.",
+    "larga": "Antes de que el juego online por internet fuera habitual, era la forma normal de jugar multijugador con baja latencia. Hoy sigue existiendo como evento social y competitivo, especialmente en esports.",
+    "relacionados": [
+      "lag"
+    ]
+  },
+  {
+    "termino": "Leaderboard (Tabla de clasificación)",
+    "slug": "leaderboard",
+    "categoria": "online",
+    "corta": "Ranking público que compara resultados entre todos los jugadores.",
+    "larga": "Puede basarse en puntuación, tiempo, rango o cualquier otra métrica que el juego decida destacar. Es habitual en juegos competitivos y en speedrunning.",
+    "relacionados": [
+      "ranked",
+      "speedrun"
+    ]
+  },
+  {
+    "termino": "Life Sim (Simulador de vida)",
+    "slug": "life-sim",
+    "categoria": "generos",
+    "corta": "Juego centrado en simular rutinas de vida cotidiana: relaciones, trabajo, hogar.",
+    "larga": "No suele tener un objetivo final fijo, sino que el jugador decide qué hacer con su tiempo dentro de la simulación. Ejemplos: The Sims, Stardew Valley (que además mezcla farming sim).",
+    "relacionados": [
+      "farming-sim"
+    ]
+  },
+  {
+    "termino": "Live Service (Juego como servicio)",
+    "slug": "live-service",
+    "categoria": "cultura",
+    "corta": "Juego pensado para recibir contenido nuevo de forma continua durante años, no una experiencia cerrada.",
+    "larga": "En vez de terminar en el lanzamiento, el estudio sigue añadiendo temporadas, eventos y contenido con el tiempo, buscando mantener a los jugadores activos a largo plazo. Suele combinarse con battle pass y microtransacciones para financiarse.",
+    "relacionados": [
+      "battle-pass",
+      "servicio-suscripcion"
+    ]
+  },
+  {
+    "termino": "Looter Shooter",
+    "slug": "looter-shooter",
+    "categoria": "generos",
+    "corta": "Shooter centrado en conseguir y mejorar constantemente el equipo mediante botín aleatorio.",
+    "larga": "La progresión gira en torno a encontrar armas y objetos de rareza creciente (común, raro, épico, legendario...), similar a un ARPG pero en formato disparos. Ejemplos: Destiny, Borderlands, The Division.",
+    "relacionados": [
+      "arpg",
+      "extraction-shooter"
+    ]
+  },
+  {
+    "termino": "Lore",
+    "slug": "lore",
+    "categoria": "cultura",
+    "corta": "El trasfondo narrativo y la historia del universo de un juego.",
+    "larga": "Incluye la historia, personajes, geografía y reglas del mundo ficticio, muchas veces contada de forma opcional a través de objetos coleccionables, diálogos secundarios o documentos, sin imponerse en la trama principal.",
+    "relacionados": [
+      "easter-egg",
+      "canon"
+    ]
+  },
+  {
+    "termino": "Matchmaking",
+    "slug": "matchmaking",
+    "categoria": "online",
+    "corta": "Sistema que empareja a jugadores de nivel similar en una partida.",
+    "larga": "Suele basarse en un sistema de puntuación (rango o MMR) para intentar que las partidas sean equilibradas. Un matchmaking mal ajustado puede emparejar a jugadores de nivel muy distinto, generando partidas injustas.",
+    "relacionados": [
+      "smurf",
+      "mmr"
+    ]
+  },
+  {
+    "termino": "Meta",
+    "slug": "meta",
+    "categoria": "cultura",
+    "corta": "La estrategia, personaje o equipo considerado más efectivo en un momento dado.",
+    "larga": "Viene de 'most effective tactics available'. El meta cambia con las actualizaciones del juego: un personaje puede pasar de ser meta a quedar obsoleto tras un nerf, y viceversa tras un buff.",
+    "relacionados": [
+      "nerf",
+      "buff"
+    ]
+  },
+  {
+    "termino": "Metroidvania",
+    "slug": "metroidvania",
+    "categoria": "generos",
+    "corta": "Exploración 2D no lineal con habilidades que desbloquean nuevas zonas.",
+    "larga": "El nombre mezcla Metroid y Castlevania, los juegos que popularizaron el estilo: un mapa interconectado donde vas volviendo sobre tus pasos a medida que consigues nuevas habilidades (un doble salto, por ejemplo) que abren caminos antes bloqueados.",
+    "relacionados": []
+  },
+  {
+    "termino": "Microtransacción",
+    "slug": "microtransaccion",
+    "categoria": "cultura",
+    "corta": "Compra pequeña dentro de un juego, normalmente de cosméticos o ventajas menores.",
+    "larga": "Puede ser solo estética (skins, que no afectan a la jugabilidad) o dar ventajas reales de progreso, lo cual genera más debate sobre si el juego es justo para quien no paga.",
+    "relacionados": [
+      "pay-to-win",
+      "battle-pass",
+      "skin"
+    ]
+  },
+  {
+    "termino": "MMR",
+    "slug": "mmr",
+    "categoria": "online",
+    "corta": "Match Making Rating: puntuación interna que mide tu nivel de juego.",
+    "larga": "No siempre es visible para el jugador (a diferencia del rango, que sí lo es). El sistema de matchmaking usa el MMR para intentar emparejarte con y contra jugadores de nivel similar.",
+    "relacionados": [
+      "matchmaking"
+    ]
+  },
+  {
+    "termino": "MOBA",
+    "slug": "moba",
+    "categoria": "generos",
+    "corta": "Multiplayer Online Battle Arena: dos equipos luchan por destruir la base rival.",
+    "larga": "Cada jugador controla un único personaje con habilidades propias, y el objetivo es avanzar por 'líneas' (lanes) destruyendo torres hasta llegar a la base enemiga. Ejemplos: League of Legends, Dota 2.",
+    "relacionados": []
+  },
+  {
+    "termino": "Mod",
+    "slug": "mod",
+    "categoria": "cultura",
+    "corta": "Modificación creada por la comunidad que cambia o añade contenido a un juego.",
+    "larga": "Puede ir desde pequeños cambios visuales hasta conversiones totales que transforman el juego por completo. Muchos juegos con gran comunidad de mods (como Skyrim) tienen una vida útil mucho más larga gracias a ello.",
+    "relacionados": [
+      "workshop"
+    ]
+  },
+  {
+    "termino": "Modo daltónico (Colorblind mode)",
+    "slug": "colorblind-mode",
+    "categoria": "tecnico",
+    "corta": "Ajuste de accesibilidad que adapta los colores del juego para daltónicos.",
+    "larga": "Suele ofrecer distintos filtros según el tipo de daltonismo (protanopia, deuteranopia, tritanopia) para que elementos importantes del juego (enemigos, objetos interactuables) sigan siendo distinguibles por color.",
+    "relacionados": []
+  },
+  {
+    "termino": "Nerf",
+    "slug": "nerf",
+    "categoria": "cultura",
+    "corta": "Debilitar algo (un personaje, arma o habilidad) en una actualización.",
+    "larga": "Los desarrolladores nerfean elementos que consideran demasiado fuertes respecto al resto, para equilibrar el juego. Lo opuesto es un 'buff'.",
+    "relacionados": [
+      "buff",
+      "meta"
+    ]
+  },
+  {
+    "termino": "Netcode",
+    "slug": "netcode",
+    "categoria": "online",
+    "corta": "El código que gestiona cómo se comunican los jugadores por internet dentro de un juego.",
+    "larga": "Un buen netcode disimula bien el retraso de la red para que la partida se sienta fluida incluso con ping variable; uno malo hace que el juego se sienta 'raro' aunque tu conexión sea buena. Es especialmente crítico en juegos de lucha y shooters competitivos.",
+    "relacionados": [
+      "rollback-netcode",
+      "ping"
+    ]
+  },
+  {
+    "termino": "New Game Plus (NG+)",
+    "slug": "new-game-plus",
+    "categoria": "cultura",
+    "corta": "Modo para volver a jugar el juego desde el principio conservando tu progreso.",
+    "larga": "Normalmente mantienes tu nivel, equipo y habilidades, mientras los enemigos suelen ser más difíciles, ofreciendo un reto distinto a quienes ya se pasaron el juego una vez.",
+    "relacionados": []
+  },
+  {
+    "termino": "Open World (mundo abierto)",
+    "slug": "open-world",
+    "categoria": "generos",
+    "corta": "Juego con un mapa grande y explorable libremente, sin niveles separados.",
+    "larga": "A diferencia de los juegos por niveles, un mundo abierto te deja moverte libremente entre zonas, normalmente combinando una historia principal con misiones secundarias opcionales. No implica necesariamente falta de objetivos, a diferencia del sandbox.",
+    "relacionados": [
+      "sandbox"
+    ]
+  },
+  {
+    "termino": "Overclock",
+    "slug": "overclock",
+    "categoria": "tecnico",
+    "corta": "Hacer que un componente (CPU o GPU) funcione por encima de su velocidad de fábrica.",
+    "larga": "Gana rendimiento a cambio de más consumo, calor y, si se hace mal, menos estabilidad o vida útil del componente. Requiere una buena refrigeración para hacerse con seguridad.",
+    "relacionados": [
+      "thermal-throttling"
+    ]
+  },
+  {
+    "termino": "Partidas de colocación (Placement matches)",
+    "slug": "placement-matches",
+    "categoria": "online",
+    "corta": "Partidas iniciales que determinan tu rango de partida en el modo clasificatorio.",
+    "larga": "Antes de asignarte un rango estable, el juego te hace jugar un número fijo de partidas para estimar tu nivel real y evitar emparejamientos muy desiguales desde el principio.",
+    "relacionados": [
+      "ranked",
+      "mmr"
+    ]
+  },
+  {
+    "termino": "Party Game",
+    "slug": "party-game",
+    "categoria": "generos",
+    "corta": "Juego pensado para jugar en grupo, con reglas simples y partidas cortas.",
+    "larga": "Prioriza la diversión social y la accesibilidad (cualquiera puede empezar a jugar en segundos) sobre la profundidad mecánica. Ejemplos: Mario Party, Fall Guys, Jackbox.",
+    "relacionados": []
+  },
+  {
+    "termino": "Patch Notes (Notas del parche)",
+    "slug": "patch-notes",
+    "categoria": "cultura",
+    "corta": "Lista de cambios, correcciones y ajustes que trae una actualización de un juego.",
+    "larga": "Suele detallar qué se ha nerfeado, qué se ha buffado, qué errores se han corregido y qué contenido nuevo se añade, siendo lectura habitual para jugadores competitivos que quieren entender cómo cambia el meta.",
+    "relacionados": [
+      "hotfix",
+      "nerf",
+      "buff",
+      "meta"
+    ]
+  },
+  {
+    "termino": "Pay to Win",
+    "slug": "pay-to-win",
+    "categoria": "cultura",
+    "corta": "Cuando pagar dinero real da una ventaja competitiva directa dentro del juego.",
+    "larga": "Se considera injusto porque el éxito deja de depender solo de la habilidad o el tiempo invertido, sino también de cuánto dinero se gasta. Se distingue de las microtransacciones puramente cosméticas, que no afectan al equilibrio del juego.",
+    "relacionados": [
+      "microtransaccion"
+    ]
+  },
+  {
+    "termino": "Peer-to-peer",
+    "slug": "peer-to-peer",
+    "categoria": "online",
+    "corta": "Conexión online donde un jugador hace de anfitrión en lugar de un servidor dedicado.",
+    "larga": "Es más barato de mantener para el estudio, pero el jugador que hace de host puede tener ventaja de ping, y si se desconecta, la partida entera puede verse afectada o cerrarse.",
+    "relacionados": [
+      "dedicated-server"
+    ]
+  },
+  {
+    "termino": "Ping",
+    "slug": "ping",
+    "categoria": "online",
+    "corta": "Tiempo que tarda un dato en ir a un servidor y volver, en milisegundos.",
+    "larga": "Un ping bajo (por debajo de 30-50 ms) significa que tus acciones se reflejan casi al instante en el servidor. Un ping alto provoca retraso entre lo que haces y lo que ocurre en pantalla, algo crítico en juegos competitivos.",
+    "relacionados": [
+      "input-lag",
+      "lag",
+      "tick-rate"
+    ]
+  },
+  {
+    "termino": "Pixel Art",
+    "slug": "pixel-art",
+    "categoria": "cultura",
+    "corta": "Estilo visual que dibuja cada imagen a partir de píxeles individuales visibles.",
+    "larga": "Herencia estética de los primeros videojuegos, hoy usada también de forma deliberada por muchos indies como estilo artístico propio, no solo por limitación técnica.",
+    "relacionados": []
+  },
+  {
+    "termino": "Plataformas (Platformer)",
+    "slug": "platformer",
+    "categoria": "generos",
+    "corta": "Juego centrado en saltar entre plataformas y esquivar obstáculos con precisión.",
+    "larga": "El salto es la mecánica principal, con niveles diseñados alrededor de plataformas, huecos y enemigos. Puede ser en 2D (Super Mario clásico) o 3D (Super Mario 64), y variar desde muy accesible hasta extremadamente exigente ('platformer de precisión').",
+    "relacionados": []
+  },
+  {
+    "termino": "Point and Click",
+    "slug": "point-and-click",
+    "categoria": "generos",
+    "corta": "Aventura gráfica donde interactúas señalando objetos y lugares con el ratón.",
+    "larga": "El progreso se basa en explorar escenarios, recoger objetos y resolver puzles de lógica o combinación de objetos, más que en reflejos. Ejemplos: Monkey Island, Grim Fandango.",
+    "relacionados": [
+      "puzzle"
+    ]
+  },
+  {
+    "termino": "Pop-in",
+    "slug": "pop-in",
+    "categoria": "tecnico",
+    "corta": "Cuando texturas, objetos o vegetación aparecen de golpe según te acercas.",
+    "larga": "Ocurre porque el juego carga el detalle de la escena progresivamente para ahorrar recursos; si la carga no da tiempo, ves el objeto aparecer bruscamente en vez de fundirse con naturalidad.",
+    "relacionados": [
+      "draw-distance"
+    ]
+  },
+  {
+    "termino": "Port (Adaptación)",
+    "slug": "port",
+    "categoria": "plataformas",
+    "corta": "Versión de un juego adaptada para funcionar en una plataforma distinta a la original.",
+    "larga": "Adaptar un juego de consola a PC, o de una consola a otra, implica ajustar controles, interfaz y a veces optimización gráfica. Un 'mal port' es aquel que llega con problemas técnicos por una adaptación descuidada.",
+    "relacionados": [
+      "remaster"
+    ]
+  },
+  {
+    "termino": "Pre-order (Reserva)",
+    "slug": "pre-order",
+    "categoria": "plataformas",
+    "corta": "Pagar por un juego antes de su lanzamiento, normalmente a cambio de algún incentivo.",
+    "larga": "Suele incluir bonos exclusivos (cosméticos, acceso anticipado, contenido extra) como forma de animar a comprar sin haber podido probar el juego. Es un tema debatido porque implica pagar sin saber si el juego cumplirá lo prometido.",
+    "relacionados": [
+      "preload",
+      "day-one-patch"
+    ]
+  },
+  {
+    "termino": "Preload (Precarga)",
+    "slug": "preload",
+    "categoria": "plataformas",
+    "corta": "Descargar un juego antes de su fecha de lanzamiento para poder jugarlo justo al salir.",
+    "larga": "El archivo queda descargado pero bloqueado hasta la hora oficial de lanzamiento, evitando que todo el mundo intente descargarlo a la vez el día del estreno y sature los servidores.",
+    "relacionados": [
+      "pre-order"
+    ]
+  },
+  {
+    "termino": "Puzzle",
+    "slug": "puzzle",
+    "categoria": "generos",
+    "corta": "Juego centrado en resolver acertijos de lógica más que en reflejos o combate.",
+    "larga": "Puede ir desde encajar piezas (Tetris) hasta manipular el espacio y la física (Portal). El reto está en pensar la solución, no en la habilidad motora.",
+    "relacionados": [
+      "point-and-click"
+    ]
+  },
+  {
+    "termino": "QTE (Quick Time Event)",
+    "slug": "qte",
+    "categoria": "cultura",
+    "corta": "Momento donde debes pulsar un botón concreto en un instante preciso durante una escena.",
+    "larga": "Se usa para mantener al jugador involucrado durante secuencias muy cinemáticas, fallar suele tener consecuencias (fallo de la acción, incluso la muerte del personaje). Es un recurso algo controvertido: a algunos jugadores les rompe la inmersión.",
+    "relacionados": [
+      "cutscene"
+    ]
+  },
+  {
+    "termino": "Racing Sim vs Arcade",
+    "slug": "racing-sim",
+    "categoria": "generos",
+    "corta": "Juego de carreras: 'sim' busca realismo físico, 'arcade' prioriza diversión inmediata.",
+    "larga": "Un simulador de carreras (Gran Turismo, iRacing) modela con precisión el peso, el agarre y los daños del vehículo, exigiendo aprender cada coche. Un arcade de carreras (Mario Kart, Need for Speed más comercial) sacrifica realismo por sensación de velocidad y accesibilidad.",
+    "relacionados": []
+  },
+  {
+    "termino": "Ranked (Clasificatoria)",
+    "slug": "ranked",
+    "categoria": "online",
+    "corta": "Modo competitivo donde tus resultados afectan a un rango visible.",
+    "larga": "Se diferencia del modo normal o 'casual' en que aquí ganar o perder tiene consecuencias en tu progresión de rango, lo que suele implicar partidas tomadas más en serio por el resto de jugadores.",
+    "relacionados": [
+      "mmr",
+      "placement-matches"
+    ]
+  },
+  {
+    "termino": "Ray Tracing",
+    "slug": "ray-tracing",
+    "categoria": "tecnico",
+    "corta": "Técnica que simula el comportamiento real de la luz para gráficos más realistas.",
+    "larga": "Calcula cómo rebota la luz en las superficies para lograr reflejos, sombras e iluminación mucho más realistas que los métodos tradicionales. Es muy exigente para el hardware, por lo que suele combinarse con DLSS o FSR para mantener buen rendimiento.",
+    "relacionados": [
+      "dlss",
+      "fsr"
+    ]
+  },
+  {
+    "termino": "Refresh Rate",
+    "slug": "refresh-rate",
+    "categoria": "tecnico",
+    "corta": "Cuántas veces por segundo se actualiza la imagen de un monitor, en Hz.",
+    "larga": "Un monitor de 60 Hz se actualiza 60 veces por segundo; uno de 144 Hz o 240 Hz lo hace muchas más veces, mostrando el movimiento de forma más fluida. Para aprovecharlo, el juego debe generar FPS suficientes: un monitor de 144 Hz no sirve de mucho si el juego va a 40 FPS.",
+    "relacionados": [
+      "fps",
+      "v-sync"
+    ]
+  },
+  {
+    "termino": "Region Lock (Bloqueo regional)",
+    "slug": "region-lock",
+    "categoria": "plataformas",
+    "corta": "Restricción que impide jugar o comprar contenido fuera de una región concreta.",
+    "larga": "Algunas tiendas o juegos limitan precios, catálogo o incluso el propio acceso según el país detectado, por motivos de licencias, precios locales o clasificación por edades.",
+    "relacionados": []
+  },
+  {
+    "termino": "Remake",
+    "slug": "remake",
+    "categoria": "plataformas",
+    "corta": "Versión construida desde cero de un juego antiguo, con el mismo argumento base.",
+    "larga": "A diferencia del remaster, un remake suele rehacer gráficos, jugabilidad y a veces hasta partes de la historia desde cero, usando tecnología moderna, mientras mantiene la esencia del juego original.",
+    "relacionados": [
+      "remaster"
+    ]
+  },
+  {
+    "termino": "Remaster",
+    "slug": "remaster",
+    "categoria": "plataformas",
+    "corta": "Versión mejorada de un juego antiguo, con gráficos y rendimiento actualizados.",
+    "larga": "Mantiene el juego original prácticamente intacto en jugabilidad y contenido, pero mejora resolución, texturas o rendimiento para hardware moderno. Menos ambicioso que un remake.",
+    "relacionados": [
+      "remake"
+    ]
+  },
+  {
+    "termino": "Resolución dinámica",
+    "slug": "dynamic-resolution",
+    "categoria": "tecnico",
+    "corta": "El juego ajusta la resolución interna sobre la marcha para mantener los FPS estables.",
+    "larga": "En momentos exigentes (muchas explosiones o personajes en pantalla), el juego baja discretamente la resolución para no perder fluidez, y la sube de nuevo cuando la escena es menos exigente. El objetivo es priorizar FPS estables sobre nitidez constante.",
+    "relacionados": [
+      "native-resolution",
+      "frame-time"
+    ]
+  },
+  {
+    "termino": "Resolución nativa",
+    "slug": "native-resolution",
+    "categoria": "tecnico",
+    "corta": "Renderizar el juego exactamente a la resolución de tu pantalla, sin upscaling.",
+    "larga": "Da la máxima nitidez posible pero es lo más exigente para la GPU. Es el punto de referencia con el que se compara el resultado de tecnologías como DLSS o FSR.",
+    "relacionados": [
+      "upscaling"
+    ]
+  },
+  {
+    "termino": "Roguelike",
+    "slug": "roguelike",
+    "categoria": "generos",
+    "corta": "Juego con niveles generados aleatoriamente y muerte permanente.",
+    "larga": "Cada partida es distinta porque el escenario se genera de nuevo, y si mueres, empiezas desde cero (sin conservar progreso dentro de la run). El nombre viene del juego 'Rogue' de los años 80.",
+    "relacionados": [
+      "roguelite"
+    ]
+  },
+  {
+    "termino": "Roguelite",
+    "slug": "roguelite",
+    "categoria": "generos",
+    "corta": "Como un roguelike, pero conservas cierto progreso entre partidas.",
+    "larga": "Comparte la generación aleatoria y la muerte permanente del roguelike, pero añade mejoras persistentes (dinero, desbloqueos, habilidades) que se mantienen aunque mueras, haciendo cada intento un poco más fácil que el anterior. Ejemplos: Hades, Dead Cells.",
+    "relacionados": [
+      "roguelike"
+    ]
+  },
+  {
+    "termino": "Rollback Netcode",
+    "slug": "rollback-netcode",
+    "categoria": "online",
+    "corta": "Técnica de sincronización online que 'rebobina' la partida para corregir el retraso de red.",
+    "larga": "En vez de esperar la confirmación de la red antes de mostrar una acción (lo que genera retraso visible), el juego asume una entrada probable, sigue jugando, y corrige hacia atrás si se equivocó. Muy usado en juegos de lucha modernos porque reduce muchísimo la sensación de input lag online.",
+    "relacionados": [
+      "netcode",
+      "fighting-game"
+    ]
+  },
+  {
+    "termino": "RPG",
+    "slug": "rpg",
+    "categoria": "generos",
+    "corta": "Role Playing Game: juego centrado en el desarrollo de un personaje y sus decisiones.",
+    "larga": "El elemento central es la progresión: tu personaje mejora con el tiempo (nivel, equipo, habilidades) y normalmente tus decisiones u objetos elegidos afectan a cómo juegas. Es un término paraguas: dentro caben estilos muy distintos, como ARPG, JRPG, CRPG o SRPG.",
+    "relacionados": [
+      "arpg",
+      "jrpg",
+      "crpg",
+      "srpg"
+    ]
+  },
+  {
+    "termino": "RTS",
+    "slug": "rts",
+    "categoria": "generos",
+    "corta": "Real Time Strategy: estrategia donde todos los jugadores actúan a la vez, sin turnos.",
+    "larga": "Hay que gestionar recursos, construir una base y controlar unidades en tiempo real, a menudo bajo presión de tiempo. Ejemplos: StarCraft, Age of Empires.",
+    "relacionados": [
+      "tbs",
+      "4x"
+    ]
+  },
+  {
+    "termino": "Sandbox",
+    "slug": "sandbox",
+    "categoria": "generos",
+    "corta": "Juego con gran libertad para crear, construir o experimentar sin objetivos fijos.",
+    "larga": "El nombre viene de 'caja de arena': el jugador tiene las herramientas y decide qué hacer con ellas, con poca o ninguna guía impuesta. Ejemplos: Minecraft, Garry's Mod.",
+    "relacionados": [
+      "open-world"
+    ]
+  },
+  {
+    "termino": "Scrim",
+    "slug": "scrim",
+    "categoria": "online",
+    "corta": "Partida de entrenamiento entre equipos, fuera de competición oficial.",
+    "larga": "Del inglés 'scrimmage'. Los equipos de esports las usan para practicar estrategias y sinergia sin que el resultado cuente para ningún ranking oficial.",
+    "relacionados": []
+  },
+  {
+    "termino": "Season Pass (Pase de temporada)",
+    "slug": "season-pass",
+    "categoria": "plataformas",
+    "corta": "Pago único que da acceso a varios contenidos futuros de un juego.",
+    "larga": "En vez de comprar cada DLC por separado, el season pass agrupa el contenido planeado para una temporada (personajes, misiones, cosméticos) en una sola compra, normalmente más barata que sumar cada pieza suelta.",
+    "relacionados": [
+      "dlc"
+    ]
+  },
+  {
+    "termino": "Servicio de suscripción (tipo Game Pass)",
+    "slug": "servicio-suscripcion",
+    "categoria": "plataformas",
+    "corta": "Pago mensual que da acceso a un catálogo de juegos mientras la suscripción esté activa.",
+    "larga": "A diferencia de comprar un juego (que es tuyo para siempre), aquí pagas por acceso: si cancelas la suscripción, pierdes el acceso a los juegos del catálogo, aunque suele salir más barato para jugar mucho y variado.",
+    "relacionados": [
+      "live-service"
+    ]
+  },
+  {
+    "termino": "Servidor dedicado",
+    "slug": "dedicated-server",
+    "categoria": "online",
+    "corta": "Servidor exclusivo para alojar la partida, en vez de que la aloje un jugador.",
+    "larga": "Suele dar una experiencia más estable y justa que un sistema peer-to-peer, porque ningún jugador tiene ventaja de conexión por 'ser el host', aunque implica un coste de mantenimiento para la empresa o comunidad que lo gestiona.",
+    "relacionados": [
+      "peer-to-peer",
+      "tick-rate"
+    ]
+  },
+  {
+    "termino": "Shader Compilation Stutter",
+    "slug": "shader-compilation-stutter",
+    "categoria": "tecnico",
+    "corta": "Tirones puntuales cuando el juego compila efectos gráficos por primera vez.",
+    "larga": "Suele pasar la primera vez que aparece un efecto visual concreto (una explosión, un material nuevo), porque el juego tiene que traducirlo para tu GPU en ese instante. Algunos juegos lo mitigan precompilando shaders al iniciar (esa barra de carga larga previa al menú).",
+    "relacionados": [
+      "traversal-stutter",
+      "frame-time"
+    ]
+  },
+  {
+    "termino": "Shadowban",
+    "slug": "shadowban",
+    "categoria": "online",
+    "corta": "Sanción encubierta donde el jugador no sabe que está siendo penalizado.",
+    "larga": "En vez de expulsar o avisar directamente, el sistema limita silenciosamente al jugador (por ejemplo, emparejándolo solo contra otros sancionados), para no dar pistas a quien hace trampas o actúa de forma tóxica sobre cómo evitar la detección.",
+    "relacionados": [
+      "toxicidad"
+    ]
+  },
+  {
+    "termino": "Skin (Cosmético)",
+    "slug": "skin",
+    "categoria": "cultura",
+    "corta": "Apariencia alternativa para un personaje, arma u objeto, sin efecto en la jugabilidad.",
+    "larga": "Es puramente visual: cambia cómo se ve algo, no cómo funciona. Es una de las formas de monetización más comunes en juegos free to play porque no afecta al equilibrio competitivo.",
+    "relacionados": [
+      "microtransaccion"
+    ]
+  },
+  {
+    "termino": "Smurf",
+    "slug": "smurf",
+    "categoria": "online",
+    "corta": "Jugador experimentado que usa una cuenta nueva para jugar contra principiantes.",
+    "larga": "Al tener una cuenta sin historial, el sistema de matchmaking la empareja con jugadores de bajo nivel, dando una ventaja injusta al smurf. Es un problema habitual en juegos competitivos con muchas quejas de la comunidad.",
+    "relacionados": [
+      "matchmaking"
+    ]
+  },
+  {
+    "termino": "Souls-like",
+    "slug": "souls-like",
+    "categoria": "generos",
+    "corta": "Juego de acción con alta dificultad, inspirado en Dark Souls.",
+    "larga": "Se caracteriza por combates exigentes y punitivos, pérdida de recursos al morir (que puedes recuperar volviendo al lugar de tu muerte), y una narrativa contada de forma indirecta a través del entorno.",
+    "relacionados": []
+  },
+  {
+    "termino": "Speedrun",
+    "slug": "speedrun",
+    "categoria": "cultura",
     "corta": "Completar un juego lo más rápido posible, a menudo explotando atajos o fallos.",
     "larga": "Existen distintas categorías (por ejemplo 'any%', completar el juego como sea, o '100%', completándolo entero) y comunidades dedicadas a compartir y verificar tiempos récord.",
-    "relacionados": [] }
+    "relacionados": []
+  },
+  {
+    "termino": "SRPG / Tactical RPG",
+    "slug": "srpg",
+    "categoria": "generos",
+    "corta": "RPG por turnos jugado sobre un tablero o cuadrícula táctica.",
+    "larga": "Strategy RPG. Combina la progresión de personajes propia de un RPG con combate táctico por turnos sobre un mapa dividido en casillas, donde la posición de cada unidad importa tanto como sus estadísticas. Ejemplos: Fire Emblem, Final Fantasy Tactics, XCOM (en su vertiente más de estrategia).",
+    "relacionados": [
+      "rpg",
+      "jrpg",
+      "tbs"
+    ]
+  },
+  {
+    "termino": "Stealth",
+    "slug": "stealth",
+    "categoria": "generos",
+    "corta": "Juego o mecánica centrada en evitar ser detectado en lugar de enfrentarse directamente.",
+    "larga": "Recompensa la paciencia y la planificación: moverse por las sombras, distraer enemigos, evitar líneas de visión. Puede ser el género completo de un juego (Metal Gear Solid, Hitman) o solo una mecánica dentro de otro género.",
+    "relacionados": [
+      "immersive-sim",
+      "survival-horror"
+    ]
+  },
+  {
+    "termino": "Stream Sniping",
+    "slug": "stream-sniping",
+    "categoria": "cultura",
+    "corta": "Usar la propia emisión en directo de un streamer para encontrarlo dentro del juego.",
+    "larga": "El espectador ve en el stream dónde está el streamer y entra a la misma partida para buscarlo o interferir, lo cual se considera mala práctica y en muchos juegos competitivos está prohibido.",
+    "relacionados": []
+  },
+  {
+    "termino": "Survival",
+    "slug": "survival",
+    "categoria": "generos",
+    "corta": "Juego centrado en gestionar recursos básicos para sobrevivir: hambre, sed, salud, refugio.",
+    "larga": "Suele combinarse con crafteo (fabricar objetos y estructuras) y, a menudo, con un mundo abierto hostil. Ejemplos: Rust, The Forest, Valheim.",
+    "relacionados": [
+      "survival-horror",
+      "open-world"
+    ]
+  },
+  {
+    "termino": "Survival Horror",
+    "slug": "survival-horror",
+    "categoria": "generos",
+    "corta": "Juego de terror donde los recursos son escasos y el combate es deliberadamente limitado.",
+    "larga": "A diferencia de un shooter de acción, aquí la munición y los objetos de curación son limitados a propósito, para generar tensión: cada enfrentamiento supone un riesgo real. Ejemplos: Resident Evil clásico, Silent Hill.",
+    "relacionados": [
+      "survival",
+      "stealth"
+    ]
+  },
+  {
+    "termino": "TAA",
+    "slug": "taa",
+    "categoria": "tecnico",
+    "corta": "Temporal Anti-Aliasing: suavizado que usa información de fotogramas anteriores.",
+    "larga": "Es el método de anti-aliasing más común hoy en día. Da buenos resultados pero puede generar un ligero desenfoque en movimiento ('ghosting'), motivo por el que algunos jugadores prefieren desactivarlo si el juego lo permite.",
+    "relacionados": [
+      "anti-aliasing"
+    ]
+  },
+  {
+    "termino": "TBS (Estrategia por turnos)",
+    "slug": "tbs",
+    "categoria": "generos",
+    "corta": "Estrategia donde cada jugador actúa en su turno, sin presión de tiempo real.",
+    "larga": "Turn-Based Strategy. Permite pensar cada movimiento sin prisa, a diferencia del RTS. Puede ser a gran escala (4X) o táctica sobre un tablero pequeño (más cerca del SRPG).",
+    "relacionados": [
+      "rts",
+      "4x",
+      "srpg"
+    ]
+  },
+  {
+    "termino": "Thermal Throttling",
+    "slug": "thermal-throttling",
+    "categoria": "tecnico",
+    "corta": "Cuando un componente reduce su propia velocidad porque se está calentando demasiado.",
+    "larga": "Es una medida de protección automática: si la CPU o GPU superan una temperatura límite, bajan su rendimiento para no dañarse, lo que se traduce en caídas de FPS. Una buena refrigeración lo evita.",
+    "relacionados": [
+      "overclock",
+      "cuello-de-botella"
+    ]
+  },
+  {
+    "termino": "Tick Rate",
+    "slug": "tick-rate",
+    "categoria": "online",
+    "corta": "Cuántas veces por segundo actualiza el servidor el estado de la partida.",
+    "larga": "Un servidor con tick rate bajo (por ejemplo 20) actualiza la posición de jugadores y disparos con menos frecuencia que uno de 64 o 128, lo que puede hacer que impactos que deberían contar no se registren bien. Muy relevante en shooters competitivos.",
+    "relacionados": [
+      "ping",
+      "hitbox"
+    ]
+  },
+  {
+    "termino": "Tiempos de carga",
+    "slug": "tiempos-de-carga",
+    "categoria": "tecnico",
+    "corta": "Cuánto tarda el juego en cargar una zona, partida guardada o transición.",
+    "larga": "Dependen sobre todo del tipo de almacenamiento: un SSD reduce drásticamente los tiempos de carga frente a un HDD tradicional. Algunas consolas y PCs usan tecnologías específicas (como DirectStorage) para acelerarlo aún más.",
+    "relacionados": [
+      "directstorage"
+    ]
+  },
+  {
+    "termino": "Tower Defense",
+    "slug": "tower-defense",
+    "categoria": "generos",
+    "corta": "Juego de estrategia donde colocas torretas o defensas para frenar oleadas de enemigos.",
+    "larga": "El reto está en decidir qué defensas construir, dónde colocarlas y cómo mejorarlas con los recursos limitados que tienes, mientras oleadas cada vez más difíciles avanzan por un camino fijo o semi-fijo.",
+    "relacionados": []
+  },
+  {
+    "termino": "Toxicidad",
+    "slug": "toxicidad",
+    "categoria": "cultura",
+    "corta": "Comportamiento negativo hacia otros jugadores: insultos, acoso, mal ambiente.",
+    "larga": "Es uno de los problemas más comunes en juegos online competitivos, y muchos estudios implementan sistemas de reporte, chat restringido o sanciones específicas para intentar reducirla.",
+    "relacionados": [
+      "griefing",
+      "shadowban"
+    ]
+  },
+  {
+    "termino": "TPS",
+    "slug": "tps",
+    "categoria": "generos",
+    "corta": "Third Person Shooter: juego de disparos con cámara en tercera persona.",
+    "larga": "A diferencia de los FPS (First Person Shooter), en un TPS ves a tu personaje desde fuera. Ejemplos típicos: Gears of War, The Division, Resident Evil moderno. Suele facilitar la percepción del entorno a cambio de precisión de apuntado.",
+    "relacionados": [
+      "fps-genero"
+    ]
+  },
+  {
+    "termino": "Traversal Stutter",
+    "slug": "traversal-stutter",
+    "categoria": "tecnico",
+    "corta": "Tirones al moverte por el mundo mientras el juego carga la siguiente zona.",
+    "larga": "Muy habitual en mundos abiertos: el juego va cargando en segundo plano lo que hay más adelante, y si no da tiempo, se nota un pequeño tirón al cruzar ciertas zonas, aunque los FPS medios sean buenos.",
+    "relacionados": [
+      "shader-compilation-stutter"
+    ]
+  },
+  {
+    "termino": "Tryhard",
+    "slug": "tryhard",
+    "categoria": "cultura",
+    "corta": "Jugador que se esfuerza al máximo, a veces incluso en partidas casuales.",
+    "larga": "Puede usarse de forma neutra (alguien muy competitivo) o despectiva, cuando alguien juega con máxima intensidad en un contexto donde se esperaba algo más relajado, generando frustración en el resto.",
+    "relacionados": []
+  },
+  {
+    "termino": "Upscaling",
+    "slug": "upscaling",
+    "categoria": "tecnico",
+    "corta": "Renderizar a menor resolución y reconstruir la imagen a una mayor.",
+    "larga": "Es la base de tecnologías como DLSS o FSR: en vez de que la GPU trabaje a máxima resolución (muy exigente), renderiza más barato y luego reconstruye el detalle, ganando FPS con una pérdida de calidad normalmente difícil de notar.",
+    "relacionados": [
+      "dlss",
+      "fsr",
+      "frame-generation"
+    ]
+  },
+  {
+    "termino": "V-Sync",
+    "slug": "v-sync",
+    "categoria": "tecnico",
+    "corta": "Sincroniza los FPS del juego con el refresco del monitor para evitar cortes de imagen.",
+    "larga": "La sincronización vertical evita el 'screen tearing' (cuando se ve la pantalla partida horizontalmente por dos fotogramas distintos), pero puede introducir input lag adicional. Tecnologías como G-Sync o FreeSync logran un efecto similar sin ese coste.",
+    "relacionados": [
+      "refresh-rate",
+      "input-lag"
+    ]
+  },
+  {
+    "termino": "VAC Ban",
+    "slug": "vac-ban",
+    "categoria": "online",
+    "corta": "Sanción del sistema anti-trampas de Steam (Valve Anti-Cheat) contra una cuenta.",
+    "larga": "Suele ser permanente y afecta al acceso a partidas online protegidas por VAC en los juegos correspondientes, aunque no siempre bloquea el uso del resto de la cuenta de Steam.",
+    "relacionados": [
+      "anti-cheat"
+    ]
+  },
+  {
+    "termino": "Vertical Slice",
+    "slug": "vertical-slice",
+    "categoria": "plataformas",
+    "corta": "Fragmento del juego pulido a nivel casi final, usado para mostrarlo antes de terminarlo.",
+    "larga": "Se centra en una pequeña porción del juego (un nivel, una zona) llevada a un nivel de calidad representativo del producto final, normalmente con fines de presentación, marketing o para conseguir financiación.",
+    "relacionados": [
+      "demo",
+      "early-access"
+    ]
+  },
+  {
+    "termino": "Visual Novel",
+    "slug": "visual-novel",
+    "categoria": "generos",
+    "corta": "Juego narrativo con poca o ninguna mecánica, centrado en leer texto e ilustraciones.",
+    "larga": "La interacción se limita normalmente a elegir opciones de diálogo que ramifican la historia hacia distintos finales. El peso recae casi por completo en la narrativa, el arte y la música. Muy popular en Japón, donde nació el formato.",
+    "relacionados": [
+      "dating-sim",
+      "jrpg"
+    ]
+  },
+  {
+    "termino": "VOD",
+    "slug": "vod",
+    "categoria": "cultura",
+    "corta": "Video On Demand: la grabación completa de una emisión en directo ya terminada.",
+    "larga": "Permite ver una transmisión pasada (por ejemplo, de Twitch) después de que haya terminado, a diferencia de un clip, que es solo un fragmento corto extraído de ella.",
+    "relacionados": [
+      "clip"
+    ]
+  },
+  {
+    "termino": "VRAM",
+    "slug": "vram",
+    "categoria": "tecnico",
+    "corta": "Memoria dedicada de la tarjeta gráfica.",
+    "larga": "Almacena texturas, modelos 3D y buffers de imagen que la GPU necesita procesar rápido. Si un juego pide más VRAM de la que tiene tu tarjeta, sufrirás bajadas de rendimiento o texturas que tardan en cargar, aunque el resto de tu PC vaya sobrado.",
+    "relacionados": [
+      "gpu"
+    ]
+  },
+  {
+    "termino": "Walking Simulator",
+    "slug": "walking-simulator",
+    "categoria": "generos",
+    "corta": "Juego centrado en explorar y descubrir historia, con poca o ninguna mecánica de reto.",
+    "larga": "El término empezó como burla pero se ha normalizado: no hay combate ni puzles complejos, el objetivo es recorrer un entorno cuidado y absorber la narrativa a tu ritmo. Ejemplos: Firewatch, What Remains of Edith Finch.",
+    "relacionados": [
+      "open-world"
+    ]
+  },
+  {
+    "termino": "Wallhack",
+    "slug": "wallhack",
+    "categoria": "online",
+    "corta": "Trampa que permite ver a otros jugadores a través de paredes y objetos opacos.",
+    "larga": "Da una ventaja de información enorme, ya que el tramposo sabe dónde está cada rival sin necesidad de verlo directamente. Suele combinarse con aimbot en las trampas más agresivas.",
+    "relacionados": [
+      "aimbot",
+      "anti-cheat"
+    ]
+  },
+  {
+    "termino": "Workshop (Taller de mods)",
+    "slug": "workshop",
+    "categoria": "plataformas",
+    "corta": "Plataforma integrada donde los jugadores comparten mods para un juego.",
+    "larga": "Facilita instalar contenido creado por la comunidad (mapas, personajes, mejoras visuales) sin tener que descargarlo manualmente de webs externas. El Workshop de Steam es el ejemplo más conocido.",
+    "relacionados": [
+      "mod"
+    ]
+  }
 ]
